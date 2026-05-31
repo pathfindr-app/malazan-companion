@@ -1,0 +1,27 @@
+{
+  "book": {
+    "slug": "demo-book",
+    "title": "Demo Book",
+    "author": "Original Sample"
+  },
+  "boundary": {
+    "label": "Demo: Chapter 1",
+    "through_position": 1
+  },
+  "characters": [
+    {
+      "name": "Example Character",
+      "type": "character",
+      "summary": "A spoiler-safe summary appears here after the reader reaches the relevant section.",
+      "confidence": 0.8,
+      "firstSeen": "CHAPTER ONE",
+      "firstSeenPosition": 1
+    }
+  ],
+  "factions": [
+    "Demo factions will be shown only after their first known appearance."
+  ],
+  "mysteries": [
+    "Open questions remain open until the reader crosses the reveal boundary."
+  ]
+}
