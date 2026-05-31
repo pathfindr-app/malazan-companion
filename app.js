@@ -168,6 +168,15 @@ function renderStack() {
   `;
   $("#card-progress").textContent = `${state.activeIndex + 1} / ${total}`;
   bindRailEvents();
+  requestAnimationFrame(centerActiveRailCard);
+}
+
+function centerActiveRailCard() {
+  const rail = stack.querySelector(".character-rail");
+  const active = stack.querySelector('.rail-card[aria-current="true"]');
+  if (!rail || !active) return;
+  const targetLeft = active.offsetLeft - (rail.clientWidth - active.clientWidth) / 2;
+  rail.scrollLeft = Math.max(0, targetLeft);
 }
 
 function selectCard(index) {
