@@ -226,57 +226,78 @@ h1 {
 
 .deck-stage {
   position: relative;
-  min-height: 455px;
   padding: 1rem 0 0;
-  overflow: hidden;
-  perspective: 1200px;
 }
 .character-stack {
+  display: grid;
+  gap: .95rem;
+}
+.focus-card-wrap {
   position: relative;
-  height: 455px;
-  isolation: isolate;
 }
 .character-card {
-  position: absolute;
-  top: 18px;
-  left: 50%;
-  width: min(650px, 74%);
-  min-height: 380px;
   display: grid;
-  grid-template-columns: 112px 1fr;
-  gap: 1.05rem;
-  padding: clamp(1rem, 2.2vw, 1.35rem);
-  border: 1px solid rgba(242, 215, 156, calc(.12 + var(--glow) * .32));
+  grid-template-columns: 118px minmax(0, 1fr);
+  gap: 1.1rem;
+  min-height: 330px;
+  padding: clamp(1.05rem, 2.4vw, 1.55rem);
+  border: 1px solid rgba(242, 215, 156, .18);
   border-radius: 28px;
   background:
-    radial-gradient(circle at 18% 12%, rgba(217, 173, 99, calc(.12 + var(--glow) * .12)), transparent 18rem),
+    radial-gradient(circle at 14% 10%, rgba(217, 173, 99, .16), transparent 18rem),
     linear-gradient(145deg, rgba(48, 37, 30, .98), rgba(18, 13, 11, .98));
-  box-shadow:
-    0 calc(18px + var(--glow) * 28px) calc(54px + var(--glow) * 46px) rgba(0,0,0,.48),
-    0 0 calc(var(--glow) * 40px) rgba(217,173,99,.22),
-    inset 0 1px rgba(255,255,255,.07);
-  transform: translate3d(calc(-50% + var(--x)), calc(var(--y) + var(--lift)), 0) scale(var(--scale)) rotateZ(var(--rotate));
-  transform-origin: center bottom;
-  opacity: var(--fade);
-  pointer-events: auto;
-  transition: transform .28s cubic-bezier(.2,.9,.2,1), opacity .28s ease, border-color .28s ease, box-shadow .28s ease;
+  box-shadow: 0 22px 70px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.07);
+}
+.character-rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(142px, 1fr);
+  gap: .55rem;
+  overflow-x: auto;
+  padding: .15rem .1rem .5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(242, 215, 156, .32) rgba(0,0,0,.2);
+}
+.rail-card {
+  min-height: 74px;
+  border: 1px solid rgba(242, 215, 156, .12);
+  border-radius: 18px;
+  padding: .75rem .8rem;
+  color: var(--ink-soft);
+  background: rgba(0,0,0,.22);
+  text-align: left;
   cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
 }
-.character-card[data-active="true"] { cursor: default; }
-.character-card:not([data-active="true"]) .card-meta,
-.character-card:not([data-active="true"]) p,
-.character-card:not([data-active="true"]) .proximity-row { opacity: 0; }
-.character-card:not([data-active="true"]) h3 {
-  position: absolute;
-  left: 1.1rem;
-  right: 1.1rem;
-  bottom: 1rem;
-  font-size: clamp(1.35rem, 2.6vw, 2.1rem);
-  line-height: .9;
-  opacity: .92;
+.rail-card:hover,
+.rail-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(242, 215, 156, .34);
+  background: rgba(242, 215, 156, .075);
+  outline: none;
 }
-.character-card:not([data-active="true"]) .sigel { opacity: .78; transform: scale(.82); }
-.character-card.hidden-card { opacity: 0; pointer-events: none; transform: translate3d(calc(-50% + var(--x)), 90px, 0) scale(.35) rotateZ(var(--rotate)); }
+.rail-card[aria-current="true"] {
+  border-color: rgba(217, 173, 99, .7);
+  background: linear-gradient(145deg, rgba(217, 173, 99, .18), rgba(0,0,0,.22));
+  box-shadow: inset 0 1px rgba(255,255,255,.06), 0 0 0 1px rgba(217,173,99,.12);
+}
+.rail-name {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.12rem;
+  line-height: 1.05;
+}
+.rail-meta {
+  display: block;
+  margin-top: .35rem;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: .68rem;
+}
 .sigel {
   position: relative;
   display: grid;
@@ -415,9 +436,9 @@ h1 {
   .status-pill { display: none; }
   h1 { font-size: clamp(3rem, 16vw, 4.7rem); }
   .section-heading { display: block; }
-  .deck-panel { min-height: 690px; border-radius: 22px; }
-  .deck-stage, .character-stack { min-height: 500px; height: 500px; }
-  .character-card { width: min(390px, 88%); min-height: 430px; grid-template-columns: 1fr; gap: .85rem; }
+  .deck-panel { min-height: auto; border-radius: 22px; }
+  .character-card { min-height: auto; grid-template-columns: 1fr; gap: .85rem; }
+  .character-rail { grid-auto-columns: minmax(132px, 72%); }
   .sigel { width: 82px; height: 100px; border-radius: 38px 38px 18px 18px; font-size: 3rem; }
   .character-card p { font-size: .97rem; }
   .side-rail { grid-template-columns: 1fr; }

@@ -106,34 +106,16 @@ function confidenceDots(value) {
   return Array.from({ length: 5 }, (_, index) => `<span class="${index < lit ? "active" : ""}"></span>`).join("");
 }
 
-function cardPosition(index) {
-  const offset = index - state.activeIndex;
-  const depth = Math.min(Math.abs(offset), 6);
-  const visible = Math.abs(offset) <= 5;
-  const baseScale = Math.max(0.48, 1 - depth * 0.105);
-  const x = offset * 126;
-  const y = depth * 20;
-  const rotate = offset * -3.6;
-  return { offset, depth, visible, baseScale, x, y, rotate };
+function characterFirstSeen(character) {
+  return character.firstSeen || (character.firstSeenPosition ? `Position ${character.firstSeenPosition}` : "Unknown");
 }
 
-function cardTemplate(character, index) {
-  const position = cardPosition(index);
-  const active = position.offset === 0;
-  const firstSeen = character.firstSeen || (character.firstSeenPosition ? `Position ${character.firstSeenPosition}` : "Unknown");
+function focusCardTemplate(character) {
+  const firstSeen = characterFirstSeen(character);
   const initial = escapeHtml((character.name || "?").slice(0, 1));
 
   return `
-    <article
-      class="character-card ${position.visible ? "" : "hidden-card"}"
-      data-active="${active}"
-      data-card-index="${index}"
-      style="--x:${position.x}px; --y:${position.y}px; --scale:${position.baseScale}; --rotate:${position.rotate}deg; --lift:0px; --glow:0; --fade:${position.visible ? Math.max(0.18, 1 - position.depth * .14) : 0}; z-index:${60 - position.depth};"
-      aria-hidden="${!active}"
-      role="button"
-      tabindex="${active ? 0 : -1}"
-      aria-label="Open ${escapeHtml(character.name)} card"
-    >
+    <article class="character-card" aria-live="polite">
       <div class="sigel" aria-hidden="true">${initial}</div>
       <div class="card-body">
         <div class="card-meta">
@@ -151,13 +133,24 @@ function cardTemplate(character, index) {
   `;
 }
 
+function railItemTemplate(character, index) {
+  const active = index === state.activeIndex;
+  const firstSeen = characterFirstSeen(character);
+  return `
+    <button class="rail-card" type="button" data-card-index="${index}" aria-current="${active ? "true" : "false"}">
+      <span class="rail-name">${escapeHtml(character.name)}</span>
+      <span class="rail-meta">${escapeHtml(toTitleCase(firstSeen))}</span>
+    </button>
+  `;
+}
+
 function renderStack() {
   applyFilter();
   const characters = state.visibleCharacters;
   const total = characters.length;
   $("#deck-count").textContent = state.query
     ? `${total} matching ${total === 1 ? "entry" : "entries"}`
-    : `${total} revealed entries · swipe the deck`;
+    : `${total} revealed entries · pick from the rail`;
 
   if (!total) {
     stack.innerHTML = `<div class="empty-state"><div><strong>No match inside the current boundary.</strong><br />Try a character, faction, or mystery from Chapter One.</div></div>`;
@@ -165,9 +158,16 @@ function renderStack() {
     return;
   }
 
-  stack.innerHTML = characters.map(cardTemplate).join("");
+  stack.innerHTML = `
+    <div class="focus-card-wrap">
+      ${focusCardTemplate(characters[state.activeIndex])}
+    </div>
+    <div class="character-rail" aria-label="Character picker">
+      ${characters.map(railItemTemplate).join("")}
+    </div>
+  `;
   $("#card-progress").textContent = `${state.activeIndex + 1} / ${total}`;
-  bindCardStackEvents();
+  bindRailEvents();
 }
 
 function selectCard(index) {
@@ -177,47 +177,9 @@ function selectCard(index) {
   renderStack();
 }
 
-function resetProximity() {
-  stack.querySelectorAll(".character-card").forEach((card) => {
-    const index = Number(card.dataset.cardIndex || 0);
-    const position = cardPosition(index);
-    card.style.setProperty("--x", `${position.x}px`);
-    card.style.setProperty("--y", `${position.y}px`);
-    card.style.setProperty("--scale", position.baseScale.toFixed(3));
-    card.style.setProperty("--rotate", `${position.rotate}deg`);
-    card.style.setProperty("--lift", "0px");
-    card.style.setProperty("--glow", "0");
-  });
-}
-
-function updatePointerProximity(clientX, clientY) {
-  stack.querySelectorAll(".character-card:not(.hidden-card)").forEach((card) => {
-    const index = Number(card.dataset.cardIndex || 0);
-    const position = cardPosition(index);
-    const rect = card.getBoundingClientRect();
-    const cardX = rect.left + rect.width / 2;
-    const cardY = rect.top + rect.height / 2;
-    const distance = Math.hypot(clientX - cardX, clientY - cardY);
-    const proximity = Math.max(0, 1 - distance / 330);
-    const hoverScale = position.baseScale + proximity * 0.18;
-    const lift = -proximity * 36;
-    card.style.setProperty("--scale", hoverScale.toFixed(3));
-    card.style.setProperty("--lift", `${lift.toFixed(1)}px`);
-    card.style.setProperty("--glow", proximity.toFixed(3));
-    card.style.zIndex = String(80 + Math.round(proximity * 30) - position.depth);
-  });
-}
-
-function bindCardStackEvents() {
-  stack.querySelectorAll(".character-card").forEach((card) => {
-    const index = Number(card.dataset.cardIndex || 0);
-    card.addEventListener("click", () => selectCard(index));
-    card.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        selectCard(index);
-      }
-    });
+function bindRailEvents() {
+  stack.querySelectorAll(".rail-card").forEach((button) => {
+    button.addEventListener("click", () => selectCard(Number(button.dataset.cardIndex || 0)));
   });
 }
 
@@ -283,12 +245,6 @@ function bindInteractions() {
       searchInput.focus();
     }
   });
-
-  stack.addEventListener("pointermove", (event) => {
-    if (event.pointerType === "touch") return;
-    updatePointerProximity(event.clientX, event.clientY);
-  });
-  stack.addEventListener("pointerleave", resetProximity);
 
   let touchStartX = 0;
   stack.addEventListener("touchstart", (event) => {
