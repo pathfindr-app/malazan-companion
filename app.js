@@ -52,7 +52,7 @@ function technicalBoundary(boundary = {}) {
   return "Chapter label shown instead of raw source indexing";
 }
 
-const GUIDE_DATA_URL = "data/guide.json?v=20260531-sorry-canon";
+const GUIDE_DATA_URL = "data/guide.json?v=20260531-chapter-one-canon-portraits";
 
 async function loadGuide() {
   try {
