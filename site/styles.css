@@ -226,36 +226,57 @@ h1 {
 
 .deck-stage {
   position: relative;
-  min-height: 420px;
+  min-height: 455px;
   padding: 1rem 0 0;
-  perspective: 1000px;
+  overflow: hidden;
+  perspective: 1200px;
 }
 .character-stack {
   position: relative;
-  height: 420px;
+  height: 455px;
+  isolation: isolate;
 }
 .character-card {
   position: absolute;
-  inset: 0;
+  top: 18px;
+  left: 50%;
+  width: min(650px, 74%);
+  min-height: 380px;
   display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 1.2rem;
-  padding: clamp(1.05rem, 2.4vw, 1.45rem);
-  border: 1px solid rgba(242, 215, 156, .18);
+  grid-template-columns: 112px 1fr;
+  gap: 1.05rem;
+  padding: clamp(1rem, 2.2vw, 1.35rem);
+  border: 1px solid rgba(242, 215, 156, calc(.12 + var(--glow) * .32));
   border-radius: 28px;
   background:
-    radial-gradient(circle at 18% 12%, rgba(217, 173, 99, .18), transparent 18rem),
+    radial-gradient(circle at 18% 12%, rgba(217, 173, 99, calc(.12 + var(--glow) * .12)), transparent 18rem),
     linear-gradient(145deg, rgba(48, 37, 30, .98), rgba(18, 13, 11, .98));
-  box-shadow: 0 26px 90px rgba(0,0,0,.46), inset 0 1px rgba(255,255,255,.06);
-  transform: translateX(calc(var(--offset) * 22px)) translateY(calc(var(--depth) * 18px)) scale(calc(1 - (var(--depth) * .055))) rotateZ(calc(var(--offset) * -2.2deg));
-  opacity: calc(1 - (var(--depth) * .22));
-  pointer-events: none;
-  transition: transform .42s cubic-bezier(.2,.9,.2,1), opacity .42s ease;
+  box-shadow:
+    0 calc(18px + var(--glow) * 28px) calc(54px + var(--glow) * 46px) rgba(0,0,0,.48),
+    0 0 calc(var(--glow) * 40px) rgba(217,173,99,.22),
+    inset 0 1px rgba(255,255,255,.07);
+  transform: translate3d(calc(-50% + var(--x)), calc(var(--y) + var(--lift)), 0) scale(var(--scale)) rotateZ(var(--rotate));
+  transform-origin: center bottom;
+  opacity: var(--fade);
+  pointer-events: auto;
+  transition: transform .28s cubic-bezier(.2,.9,.2,1), opacity .28s ease, border-color .28s ease, box-shadow .28s ease;
+  cursor: pointer;
 }
-.character-card[data-active="true"] { pointer-events: auto; }
-.character-card:not([data-active="true"]) .card-body { opacity: 0; }
-.character-card:not([data-active="true"]) .sigel { opacity: .72; }
-.character-card.hidden-card { opacity: 0; transform: translateX(90px) scale(.82); }
+.character-card[data-active="true"] { cursor: default; }
+.character-card:not([data-active="true"]) .card-meta,
+.character-card:not([data-active="true"]) p,
+.character-card:not([data-active="true"]) .proximity-row { opacity: 0; }
+.character-card:not([data-active="true"]) h3 {
+  position: absolute;
+  left: 1.1rem;
+  right: 1.1rem;
+  bottom: 1rem;
+  font-size: clamp(1.35rem, 2.6vw, 2.1rem);
+  line-height: .9;
+  opacity: .92;
+}
+.character-card:not([data-active="true"]) .sigel { opacity: .78; transform: scale(.82); }
+.character-card.hidden-card { opacity: 0; pointer-events: none; transform: translate3d(calc(-50% + var(--x)), 90px, 0) scale(.35) rotateZ(var(--rotate)); }
 .sigel {
   position: relative;
   display: grid;
@@ -382,10 +403,6 @@ h1 {
   border: 0;
 }
 
-@supports not (width: calc(1px * var(--depth))) {
-  .character-card { transform: translateX(calc(var(--offset) * 22px)) scale(.96); }
-}
-
 @media (max-width: 980px) {
   .hero, .layout-shell { grid-template-columns: 1fr; }
   .boundary-card { max-width: 520px; }
@@ -400,7 +417,7 @@ h1 {
   .section-heading { display: block; }
   .deck-panel { min-height: 690px; border-radius: 22px; }
   .deck-stage, .character-stack { min-height: 500px; height: 500px; }
-  .character-card { grid-template-columns: 1fr; gap: .85rem; }
+  .character-card { width: min(390px, 88%); min-height: 430px; grid-template-columns: 1fr; gap: .85rem; }
   .sigel { width: 82px; height: 100px; border-radius: 38px 38px 18px 18px; font-size: 3rem; }
   .character-card p { font-size: .97rem; }
   .side-rail { grid-template-columns: 1fr; }
