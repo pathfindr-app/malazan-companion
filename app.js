@@ -52,9 +52,11 @@ function technicalBoundary(boundary = {}) {
   return "Chapter label shown instead of raw source indexing";
 }
 
+const GUIDE_DATA_URL = "data/guide.json?v=20260531-sorry-canon";
+
 async function loadGuide() {
   try {
-    const response = await fetch("data/guide.json", { cache: "no-store" });
+    const response = await fetch(GUIDE_DATA_URL, { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return await response.json();
   } catch (error) {
