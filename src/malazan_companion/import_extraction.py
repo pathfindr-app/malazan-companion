@@ -35,4 +35,33 @@ def import_extraction(conn: sqlite3.Connection, extraction: dict[str, Any]) -> d
             confidence=float(character.get("confidence", 0.5)),
         )
         count += 1
-    return {"characters_imported": count}
+
+    faction_count = 0
+    for faction in extraction.get("factions", []):
+        upsert_entity(
+            conn,
+            book_id=book["id"],
+            entity_type="faction",
+            canonical_name=faction["name"],
+            first_seen_source_id=source["id"],
+            summary=faction.get("summary", ""),
+            confidence=float(faction.get("confidence", 0.5)),
+        )
+        faction_count += 1
+
+    question_count = 0
+    for question in extraction.get("questions", []):
+        conn.execute(
+            """
+            insert into questions(book_id, source_id, question, current_theory)
+            values (?, ?, ?, ?)
+            """,
+            (book["id"], source["id"], question["question"], question.get("current_theory", "")),
+        )
+        question_count += 1
+    conn.commit()
+    return {
+        "characters_imported": count,
+        "factions_imported": faction_count,
+        "questions_imported": question_count,
+    }

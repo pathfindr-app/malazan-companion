@@ -6,6 +6,17 @@ import sqlite3
 from typing import Any
 
 
+def _entity_row_to_card(row: Any) -> dict[str, Any]:
+    return {
+        "name": row["canonical_name"],
+        "type": row["type"],
+        "summary": row["summary"],
+        "confidence": row["confidence"],
+        "firstSeen": row["first_seen_label"],
+        "firstSeenPosition": row["first_seen_position"],
+    }
+
+
 def export_guide_json(
     conn: sqlite3.Connection,
     out_path: str | Path,
@@ -28,23 +39,49 @@ def export_guide_json(
         """,
         (book["id"], through_position),
     ).fetchall()
-    characters = [
+    characters = [_entity_row_to_card(row) for row in rows]
+
+    faction_rows = conn.execute(
+        """
+        select e.*, s.position as first_seen_position, s.label as first_seen_label
+        from entities e
+        left join sources s on s.id = e.first_seen_source_id
+        where e.book_id = ?
+          and e.type = 'faction'
+          and coalesce(s.position, 0) <= ?
+        order by e.sort_name
+        """,
+        (book["id"], through_position),
+    ).fetchall()
+    factions = [_entity_row_to_card(row) for row in faction_rows]
+
+    mystery_rows = conn.execute(
+        """
+        select q.*, s.position as opened_position, s.label as opened_label
+        from questions q
+        left join sources s on s.id = q.source_id
+        where q.book_id = ?
+          and coalesce(s.position, 0) <= ?
+        order by q.id
+        """,
+        (book["id"], through_position),
+    ).fetchall()
+    mysteries = [
         {
-            "name": row["canonical_name"],
-            "type": row["type"],
-            "summary": row["summary"],
-            "confidence": row["confidence"],
-            "firstSeen": row["first_seen_label"],
-            "firstSeenPosition": row["first_seen_position"],
+            "question": row["question"],
+            "status": row["status"],
+            "currentTheory": row["current_theory"],
+            "opened": row["opened_label"],
+            "openedPosition": row["opened_position"],
         }
-        for row in rows
+        for row in mystery_rows
     ]
     guide = {
         "book": {"slug": book["slug"], "title": book["title"], "author": book["author"]},
         "boundary": {"through_position": through_position},
         "characters": characters,
-        "factions": [],
-        "mysteries": [],
+        "factions": factions,
+        "mysteries": mysteries,
     }
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
