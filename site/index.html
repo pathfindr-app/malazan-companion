@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spoiler-Safe Reading Companion</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Private index · public-safe shell</p>
+      <h1>Spoiler-Safe Reading Companion</h1>
+      <p class="lede">A dashboard for dense books: reveal characters, factions, locations, and mysteries only up to your reading position.</p>
+    </div>
+    <div class="position-card">
+      <span>Current boundary</span>
+      <strong id="boundary">Demo: Chapter 1</strong>
+      <small>No future-book facts shown.</small>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="panel wide">
+      <h2>Cast revealed so far</h2>
+      <div id="characters" class="cards"></div>
+    </section>
+    <section class="panel">
+      <h2>Factions</h2>
+      <ul id="factions"></ul>
+    </section>
+    <section class="panel">
+      <h2>Open mysteries</h2>
+      <ul id="mysteries"></ul>
+    </section>
+    <section class="panel wide">
+      <h2>How this stays safe</h2>
+      <p>The hosted dashboard should contain app code only. Personal EPUBs and derived private reading data stay local unless explicitly exported in sanitized form.</p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
