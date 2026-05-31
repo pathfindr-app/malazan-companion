@@ -10,3 +10,4 @@ malazan = "malazan_companion.cli:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["src"]
