@@ -237,9 +237,9 @@ h1 {
 }
 .character-card {
   display: grid;
-  grid-template-columns: 118px minmax(0, 1fr);
+  grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
   gap: 1.1rem;
-  min-height: 330px;
+  min-height: 430px;
   padding: clamp(1.05rem, 2.4vw, 1.55rem);
   border: 1px solid rgba(242, 215, 156, .18);
   border-radius: 28px;
@@ -298,24 +298,52 @@ h1 {
   font-family: var(--mono);
   font-size: .68rem;
 }
-.sigel {
+.sigel, .character-portrait {
   position: relative;
   display: grid;
   place-items: center;
   align-self: start;
-  width: 118px;
-  height: 148px;
+  width: 100%;
+  max-width: 260px;
+  min-height: 348px;
   border: 1px solid rgba(242, 215, 156, .22);
   border-radius: 54px 54px 22px 22px;
+  overflow: hidden;
   color: var(--gold-2);
   background:
     linear-gradient(135deg, rgba(217, 173, 99, .15), transparent),
     rgba(0,0,0,.25);
-  box-shadow: inset 0 1px rgba(255,255,255,.08);
+  box-shadow: inset 0 1px rgba(255,255,255,.08), 0 18px 46px rgba(0,0,0,.28);
   font-family: var(--serif);
   font-size: 4rem;
   font-weight: 700;
   text-transform: uppercase;
+}
+.sigel {
+  width: 118px;
+  height: 148px;
+  min-height: 148px;
+  max-width: 118px;
+}
+.character-portrait {
+  margin: 0;
+  border-radius: 24px;
+  background: rgba(0,0,0,.28);
+}
+.character-portrait img {
+  width: 100%;
+  height: 100%;
+  min-height: 348px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.character-portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), inset 0 -52px 72px rgba(0,0,0,.22);
 }
 .sigel::after {
   content: "";
@@ -438,6 +466,8 @@ h1 {
   .section-heading { display: block; }
   .deck-panel { min-height: auto; border-radius: 22px; }
   .character-card { min-height: auto; grid-template-columns: 1fr; gap: .85rem; }
+  .character-portrait { max-width: 100%; min-height: 420px; }
+  .character-portrait img { min-height: 420px; }
   .character-rail { grid-auto-columns: minmax(132px, 72%); }
   .sigel { width: 82px; height: 100px; border-radius: 38px 38px 18px 18px; font-size: 3rem; }
   .character-card p { font-size: .97rem; }

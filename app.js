@@ -113,10 +113,13 @@ function characterFirstSeen(character) {
 function focusCardTemplate(character) {
   const firstSeen = characterFirstSeen(character);
   const initial = escapeHtml((character.name || "?").slice(0, 1));
+  const image = character.image
+    ? `<figure class="character-portrait"><img src="${escapeHtml(character.image)}" alt="Spoiler-safe portrait of ${escapeHtml(character.name)}" loading="lazy" /></figure>`
+    : `<div class="sigel" aria-hidden="true">${initial}</div>`;
 
   return `
     <article class="character-card" aria-live="polite">
-      <div class="sigel" aria-hidden="true">${initial}</div>
+      ${image}
       <div class="card-body">
         <div class="card-meta">
           <span class="badge">Revealed: ${escapeHtml(toTitleCase(firstSeen))}</span>
