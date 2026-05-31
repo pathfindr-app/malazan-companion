@@ -14,7 +14,10 @@
       "summary": "A hooded, shadow-associated figure who appears with Cotillion and commands terrifying Hounds. He discusses using the fishergirl as something the Empress cannot trace. His power and agenda are unclear.",
       "confidence": 0.86,
       "firstSeen": "CHAPTER ONE",
-      "firstSeenPosition": 16
+      "firstSeenPosition": 16,
+      "image": "assets/characters/ammanas-chapter-one-canon.png",
+      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "imageStatus": "canon"
     },
     {
       "name": "Aragan",
@@ -22,7 +25,10 @@
       "summary": "An officer managing events in Gerrom after the slaughter. He questions a new soldier named Sorry and records her attachment to the Bridgeburners under High Fist Dujek Onearm.",
       "confidence": 0.82,
       "firstSeen": "CHAPTER ONE",
-      "firstSeenPosition": 16
+      "firstSeenPosition": 16,
+      "image": "assets/characters/aragan-chapter-one-canon.png",
+      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "imageStatus": "canon"
     },
     {
       "name": "Cotillion",
@@ -30,7 +36,10 @@
       "summary": "A black-clad figure who appears with Ammanas after the slaughter. He argues that the fishergirl should not simply be discarded and chooses her for some purpose. His nature and motives remain unclear.",
       "confidence": 0.86,
       "firstSeen": "CHAPTER ONE",
-      "firstSeenPosition": 16
+      "firstSeenPosition": 16,
+      "image": "assets/characters/cotillion-chapter-one-canon.png",
+      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "imageStatus": "canon"
     },
     {
       "name": "Dujek Onearm",
@@ -38,7 +47,10 @@
       "summary": "A High Fist mentioned as commander of Onearm's Host and the Bridgeburners. Sorry is recorded as attached under his command, but he does not directly appear in this chapter.",
       "confidence": 0.76,
       "firstSeen": "CHAPTER ONE",
-      "firstSeenPosition": 16
+      "firstSeenPosition": 16,
+      "image": "assets/characters/dujek-onearm-chapter-one-canon.png",
+      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "imageStatus": "canon"
     },
     {
       "name": "Fishergirl's father",
@@ -46,7 +58,10 @@
       "summary": "The fishergirl's unnamed father, described as poor and missing an arm. He depends on her return and the repair of fishing nets.",
       "confidence": 0.62,
       "firstSeen": "CHAPTER ONE",
-      "firstSeenPosition": 16
+      "firstSeenPosition": 16,
+      "image": "assets/characters/fishergirls-father-chapter-one-canon.png",
+      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "imageStatus": "canon"
     },
     {
       "name": "Ganoes Paran",
@@ -54,7 +69,10 @@
       "summary": "A young noble officer from House Paran of Unta, serving as a lieutenant. He inspects the massacre site, is placed on Adjunct Lorn's staff, and is sent toward Gerrom to ask questions.",
       "confidence": 0.92,
       "firstSeen": "CHAPTER ONE",
-      "firstSeenPosition": 16
+      "firstSeenPosition": 16,
+      "image": "assets/characters/ganoes-paran-chapter-one-canon.png",
+      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "imageStatus": "canon"
     },
     {
       "name": "Garnet",
@@ -62,7 +80,10 @@
       "summary": "A guard at House Paran in Unta who admits Ganoes Paran and answers his questions with dry familiarity.",
       "confidence": 0.78,
       "firstSeen": "CHAPTER ONE",
-      "firstSeenPosition": 16
+      "firstSeenPosition": 16,
+      "image": "assets/characters/garnet-chapter-one-canon.png",
+      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "imageStatus": "canon"
     },
     {
       "name": "Ilgrand Lender",
@@ -70,7 +91,10 @@
       "summary": "A person mentioned by the fishergirl in connection with debt or repayment after her father's fishing gear is lost. Not directly seen in the chapter.",
       "confidence": 0.55,
       "firstSeen": "CHAPTER ONE",
-      "firstSeenPosition": 16
+      "firstSeenPosition": 16,
+      "image": "assets/characters/ilgrand-lender-chapter-one-canon.png",
+      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "imageStatus": "canon"
     },
     {
       "name": "Laseen",
@@ -78,7 +102,10 @@
       "summary": "The Empress of the Malazan Empire, repeatedly mentioned as the source of imperial authority. Lorn serves as her Adjunct, and Ammanas/Cotillion discuss acting in ways she cannot trace.",
       "confidence": 0.84,
       "firstSeen": "CHAPTER ONE",
-      "firstSeenPosition": 16
+      "firstSeenPosition": 16,
+      "image": "assets/characters/laseen-chapter-one-canon.png",
+      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "imageStatus": "canon"
     },
     {
       "name": "Lorn",
@@ -86,7 +113,10 @@
       "summary": "The Adjunct to Empress Laseen. She arrives by Warren, investigates the slaughter near Itko Kan, takes Paran onto her staff, and directs the response with cold authority.",
       "confidence": 0.92,
       "firstSeen": "CHAPTER ONE",
-      "firstSeenPosition": 16
+      "firstSeenPosition": 16,
+      "image": "assets/characters/lorn-chapter-one-canon.png",
+      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "imageStatus": "canon"
     },
     {
       "name": "Rigga",
@@ -94,7 +124,10 @@
       "summary": "An old wax-witch/seer traveling with the fishergirl. She speaks bitterly of the Empire, gives a prophecy about the girl, and is killed during the violence on the road.",
       "confidence": 0.9,
       "firstSeen": "CHAPTER ONE",
-      "firstSeenPosition": 16
+      "firstSeenPosition": 16,
+      "image": "assets/characters/rigga-chapter-one-canon.png",
+      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "imageStatus": "canon"
     },
     {
       "name": "Sorry",
@@ -113,7 +146,10 @@
       "summary": "Ganoes Paran's younger sister. She appears at House Paran in Unta and notes that she thought Ganoes was in Itko Kan.",
       "confidence": 0.78,
       "firstSeen": "CHAPTER ONE",
-      "firstSeenPosition": 16
+      "firstSeenPosition": 16,
+      "image": "assets/characters/tavore-paran-chapter-one-canon.png",
+      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "imageStatus": "canon"
     },
     {
       "name": "Topper",
@@ -121,7 +157,10 @@
       "summary": "A Claw who intercepts Paran by Warren and speaks with him during the journey. He is civil but dangerous, and Paran treats him with suspicion and hostility.",
       "confidence": 0.9,
       "firstSeen": "CHAPTER ONE",
-      "firstSeenPosition": 16
+      "firstSeenPosition": 16,
+      "image": "assets/characters/topper-chapter-one-canon.png",
+      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "imageStatus": "canon"
     },
     {
       "name": "Unnamed Itko Kan captain",
@@ -129,7 +168,10 @@
       "summary": "A local captain working under Lorn at the massacre site. He has served in Itko Kan for years, reports on the dead, and is visibly uneasy around the Adjunct.",
       "confidence": 0.72,
       "firstSeen": "CHAPTER ONE",
-      "firstSeenPosition": 16
+      "firstSeenPosition": 16,
+      "image": "assets/characters/unnamed-itko-kan-captain-chapter-one-canon.png",
+      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "imageStatus": "canon"
     }
   ],
   "factions": [
