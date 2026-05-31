@@ -102,7 +102,10 @@
       "summary": "A young fishergirl from Itko Kan who is caught beside the road during the imperial action near her village. After Rigga's death, two powerful figures take an interest in her; later she appears among soldiers and gives her name as Sorry. Identity and agency are uncertain at this point.",
       "confidence": 0.82,
       "firstSeen": "CHAPTER ONE",
-      "firstSeenPosition": 16
+      "firstSeenPosition": 16,
+      "image": "assets/characters/sorry-chapter-one-canon.jpg",
+      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "imageStatus": "canon"
     },
     {
       "name": "Tavore Paran",
