@@ -52,7 +52,7 @@ function technicalBoundary(boundary = {}) {
   return "Chapter label shown instead of raw source indexing";
 }
 
-const GUIDE_DATA_URL = "data/guide.json?v=20260531-chapter-one-canon-portraits";
+const GUIDE_DATA_URL = "data/guide.json?v=20260603-character-web";
 
 async function loadGuide() {
   try {
@@ -197,6 +197,149 @@ function bindRailEvents() {
   });
 }
 
+function graphCategoryLabel(category = "contact") {
+  const labels = {
+    lineage: "Lineage / household",
+    command: "Command / authority",
+    mystery: "Open mystery",
+    faction: "Faction tie",
+    bond: "Personal bond",
+    service: "Service / household",
+    contact: "Direct contact",
+    uncertain: "Uncertain mention"
+  };
+  return labels[category] || toTitleCase(category);
+}
+
+function nodeTypeFor(name, guide) {
+  if ((guide.characters || []).some((character) => character.name === name)) return "character";
+  if ((guide.factions || []).some((faction) => (typeof faction === "string" ? faction : faction.name) === name)) return "faction";
+  return "concept";
+}
+
+function buildRelationshipGraph(guide) {
+  const relationships = guide.relationships || [];
+  const nodeMap = new Map();
+  relationships.forEach((relationship) => {
+    [relationship.source, relationship.target].forEach((name) => {
+      if (!name || nodeMap.has(name)) return;
+      nodeMap.set(name, {
+        id: name,
+        label: name,
+        type: nodeTypeFor(name, guide),
+        links: 0
+      });
+    });
+  });
+  relationships.forEach((relationship) => {
+    const source = nodeMap.get(relationship.source);
+    const target = nodeMap.get(relationship.target);
+    if (source) source.links += 1;
+    if (target) target.links += 1;
+  });
+  return { nodes: Array.from(nodeMap.values()), relationships };
+}
+
+function graphNodePosition(node, index, total) {
+  const featured = {
+    "Sorry": [50, 50],
+    "Ganoes Paran": [32, 34],
+    "Lorn": [58, 27],
+    "Laseen": [78, 17],
+    "Ammanas": [33, 68],
+    "Cotillion": [53, 72],
+    "House Paran": [17, 22],
+    "Bridgeburners": [80, 65],
+    "Malazan Empire": [83, 35]
+  };
+  if (featured[node.id]) return featured[node.id];
+  const angle = (-90 + (360 / Math.max(total, 1)) * index) * (Math.PI / 180);
+  const radius = node.type === "faction" ? 41 : 34;
+  return [50 + Math.cos(angle) * radius, 50 + Math.sin(angle) * radius];
+}
+
+function relationshipDetailTemplate(relationship) {
+  if (!relationship) {
+    return `<strong>Click a node or line.</strong><p>The web grows as new chapters add spoiler-gated relationships, lineage, command ties, faction links, and open mysteries.</p>`;
+  }
+  return `
+    <strong>${escapeHtml(relationship.source)} ↔ ${escapeHtml(relationship.target)}</strong>
+    <span>${escapeHtml(graphCategoryLabel(relationship.category))} · ${escapeHtml(relationship.kind || "known-so-far link")}</span>
+    <p>${escapeHtml(relationship.summary || "Known-so-far relationship through the current boundary.")}</p>
+  `;
+}
+
+function renderRelationshipMap(guide) {
+  const map = $("#relationship-map");
+  const detail = $("#map-detail");
+  const count = $("#map-count");
+  if (!map || !detail || !count) return;
+
+  const { nodes, relationships } = buildRelationshipGraph(guide);
+  const positions = new Map(nodes.map((node, index) => [node.id, graphNodePosition(node, index, nodes.length)]));
+  count.textContent = `${nodes.length} nodes · ${relationships.length} spoiler-safe links`;
+
+  if (!relationships.length) {
+    map.innerHTML = `<div class="empty-state"><div><strong>No relationships exported yet.</strong><br />The map will fill as chapter data expands.</div></div>`;
+    detail.innerHTML = relationshipDetailTemplate();
+    return;
+  }
+
+  const lines = relationships.map((relationship, index) => {
+    const source = positions.get(relationship.source);
+    const target = positions.get(relationship.target);
+    if (!source || !target) return "";
+    const confidence = Number(relationship.confidence ?? 0.7);
+    const uncertain = confidence < 0.72 || relationship.category === "mystery" || relationship.category === "uncertain";
+    return `<button class="map-edge map-edge-${escapeHtml(relationship.category || "contact")}" data-link-index="${index}" style="--x1:${source[0]};--y1:${source[1]};--x2:${target[0]};--y2:${target[1]};--alpha:${Math.max(0.38, Math.min(0.95, confidence)).toFixed(2)}" aria-label="${escapeHtml(relationship.source)} to ${escapeHtml(relationship.target)}: ${escapeHtml(relationship.kind || "relationship")}"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="${source[0]}" y1="${source[1]}" x2="${target[0]}" y2="${target[1]}" class="${uncertain ? "uncertain" : ""}" /></svg></button>`;
+  }).join("");
+
+  const nodeButtons = nodes.map((node, index) => {
+    const [x, y] = positions.get(node.id);
+    const size = Math.min(1.34, 0.84 + node.links * 0.08);
+    return `<button class="map-node map-node-${node.type}" data-node-name="${escapeHtml(node.id)}" style="--x:${x};--y:${y};--node-scale:${size.toFixed(2)}" aria-label="Show links for ${escapeHtml(node.label)}"><span>${escapeHtml(node.label)}</span><em>${node.links}</em></button>`;
+  }).join("");
+
+  map.innerHTML = `<div class="map-canvas"><div class="map-veil" aria-hidden="true"></div>${lines}${nodeButtons}</div>`;
+  detail.innerHTML = relationshipDetailTemplate(relationships[0]);
+
+  map.querySelectorAll(".map-edge").forEach((button) => {
+    button.addEventListener("click", () => {
+      const relationship = relationships[Number(button.dataset.linkIndex || 0)];
+      detail.innerHTML = relationshipDetailTemplate(relationship);
+      map.querySelectorAll(".map-edge, .map-node").forEach((element) => element.classList.remove("is-selected", "is-related"));
+      button.classList.add("is-selected");
+      [relationship.source, relationship.target].forEach((name) => {
+        map.querySelector(`.map-node[data-node-name="${CSS.escape(name)}"]`)?.classList.add("is-related");
+      });
+    });
+  });
+
+  map.querySelectorAll(".map-node").forEach((button) => {
+    button.addEventListener("click", () => {
+      const name = button.dataset.nodeName || "";
+      const related = relationships.filter((relationship) => relationship.source === name || relationship.target === name);
+      map.querySelectorAll(".map-edge, .map-node").forEach((element) => element.classList.remove("is-selected", "is-related"));
+      button.classList.add("is-selected");
+      related.forEach((relationship) => {
+        const linkIndex = relationships.indexOf(relationship);
+        map.querySelector(`.map-edge[data-link-index="${linkIndex}"]`)?.classList.add("is-related");
+      });
+      const characterIndex = (state.guide.characters || []).findIndex((character) => character.name === name);
+      if (characterIndex >= 0) {
+        state.query = "";
+        searchInput.value = "";
+        state.visibleCharacters = state.guide.characters || [];
+        state.activeIndex = characterIndex;
+        renderStack();
+      }
+      detail.innerHTML = related.length
+        ? `<strong>${escapeHtml(name)}</strong><span>${related.length} known-so-far ${related.length === 1 ? "connection" : "connections"}</span>${related.slice(0, 4).map((relationship) => `<p>${escapeHtml(relationship.source === name ? relationship.target : relationship.source)} — ${escapeHtml(relationship.kind || graphCategoryLabel(relationship.category))}</p>`).join("")}`
+        : `<strong>${escapeHtml(name)}</strong><p>No exported relationships yet.</p>`;
+    });
+  });
+}
+
 function renderBoundary(guide) {
   const chapter = chapterLabel(guide.boundary || {});
   $("#boundary-title").textContent = `Through ${chapter}`;
@@ -275,6 +418,7 @@ function renderGuide(guide) {
   state.guide = guide;
   state.activeIndex = 0;
   renderBoundary(guide);
+  renderRelationshipMap(guide);
   renderStack();
   renderSideRail(guide);
 }
