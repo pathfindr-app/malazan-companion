@@ -510,7 +510,7 @@ h1 {
 
 .map-stage {
   position: relative;
-  min-height: clamp(500px, 55vw, 680px);
+  min-height: clamp(640px, 68vw, 820px);
   border: 1px solid rgba(242, 215, 156, .14);
   border-radius: 28px;
   overflow: hidden;

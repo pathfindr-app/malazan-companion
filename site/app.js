@@ -52,7 +52,7 @@ function technicalBoundary(boundary = {}) {
   return "Chapter label shown instead of raw source indexing";
 }
 
-const GUIDE_DATA_URL = "data/guide.json?v=20260603-character-web";
+const GUIDE_DATA_URL = "data/guide.json?v=20260603-chapter-two-cinematic-portraits";
 
 async function loadGuide() {
   try {
@@ -242,15 +242,51 @@ function buildRelationshipGraph(guide) {
 
 function graphNodePosition(node, index, total) {
   const featured = {
-    "Sorry": [50, 50],
-    "Ganoes Paran": [32, 34],
-    "Lorn": [58, 27],
-    "Laseen": [78, 17],
-    "Ammanas": [33, 68],
-    "Cotillion": [53, 72],
-    "House Paran": [17, 22],
-    "Bridgeburners": [80, 65],
-    "Malazan Empire": [83, 35]
+    "House Paran": [16, 16],
+    "Tavore Paran": [30, 14],
+    "Garnet": [18, 25],
+    "Ganoes Paran": [40, 21],
+    "Topper": [54, 16],
+    "Claw": [66, 18],
+    "Lorn": [64, 35],
+    "Laseen": [82, 18],
+    "Malazan Empire": [75, 30],
+    "Unnamed Itko Kan captain": [78, 43],
+    "Aragan": [70, 53],
+
+    "Sorry": [52, 50],
+    "Rigga": [43, 38],
+    "Fishergirl's father": [56, 38],
+    "Ammanas": [43, 62],
+    "Cotillion": [55, 63],
+
+    "Bridgeburners": [80, 62],
+    "Whiskeyjack": [26, 51],
+    "Quick Ben": [24, 42],
+    "Kalam": [17, 48],
+    "Fiddler": [18, 35],
+    "Hedge": [25, 32],
+    "Mallet": [33, 28],
+    "Trotts": [42, 26],
+    "Dujek Onearm": [74, 74],
+    "Onearm's Host": [84, 79],
+
+    "Tattersail": [47, 77],
+    "2nd Army": [36, 80],
+    "Calot": [39, 69],
+    "Hairlock": [55, 75],
+    "Tayschrenn": [62, 84],
+    "Nightchill": [73, 84],
+    "Bellurdan": [80, 91],
+    "A'Karonys": [89, 84],
+
+    "Anomander Rake": [21, 73],
+    "Moon's Spawn": [13, 65],
+    "Tiste Andii": [13, 83],
+    "Caladan Brood": [27, 90],
+    "Crimson Guard": [39, 92],
+    "Dancer": [56, 93],
+    "Mock": [68, 92]
   };
   if (featured[node.id]) return featured[node.id];
   const angle = (-90 + (360 / Math.max(total, 1)) * index) * (Math.PI / 180);
