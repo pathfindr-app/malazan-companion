@@ -5,7 +5,8 @@
     "author": "Steven Erikson"
   },
   "boundary": {
-    "through_position": 16
+    "through_position": 16,
+    "chapter": "Chapter One"
   },
   "characters": [
     {
@@ -251,6 +252,188 @@
       "currentTheory": "It points toward blood, shadow, a sword, and the fishergirl's future, but should remain unresolved for now.",
       "opened": "CHAPTER ONE",
       "openedPosition": 16
+    }
+  ],
+  "relationships": [
+    {
+      "source": "Sorry",
+      "target": "Rigga",
+      "kind": "traveling together",
+      "category": "bond",
+      "summary": "Rigga travels with the fishergirl and gives a prophecy before the road violence.",
+      "confidence": 0.88,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Sorry",
+      "target": "Fishergirl's father",
+      "kind": "family / dependent household",
+      "category": "lineage",
+      "summary": "The fishergirl's unnamed father depends on her return and the repair of fishing nets.",
+      "confidence": 0.74,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Sorry",
+      "target": "Cotillion",
+      "kind": "chosen for unclear purpose",
+      "category": "mystery",
+      "summary": "Cotillion argues the fishergirl should not simply be discarded and chooses her for an unresolved purpose.",
+      "confidence": 0.82,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Sorry",
+      "target": "Ammanas",
+      "kind": "used as untraceable move",
+      "category": "mystery",
+      "summary": "Ammanas discusses using the fishergirl in a way the Empress cannot trace.",
+      "confidence": 0.78,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Ammanas",
+      "target": "Cotillion",
+      "kind": "shadow-associated pair",
+      "category": "mystery",
+      "summary": "They appear together after the slaughter and appear to share an agenda, though their identities remain unresolved.",
+      "confidence": 0.84,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Ganoes Paran",
+      "target": "Tavore Paran",
+      "kind": "siblings / House Paran",
+      "category": "lineage",
+      "summary": "Both are members of House Paran; Tavore is Ganoes Paran's younger sister.",
+      "confidence": 0.92,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Ganoes Paran",
+      "target": "House Paran",
+      "kind": "noble house",
+      "category": "lineage",
+      "summary": "Ganoes belongs to House Paran of Unta.",
+      "confidence": 0.9,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Tavore Paran",
+      "target": "House Paran",
+      "kind": "noble house",
+      "category": "lineage",
+      "summary": "Tavore is part of the Paran household in Unta.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Garnet",
+      "target": "House Paran",
+      "kind": "house guard",
+      "category": "service",
+      "summary": "Garnet serves as a guard at House Paran and admits Ganoes.",
+      "confidence": 0.78,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Ganoes Paran",
+      "target": "Lorn",
+      "kind": "assigned to staff",
+      "category": "command",
+      "summary": "Lorn takes Paran onto her staff after the massacre investigation.",
+      "confidence": 0.9,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Lorn",
+      "target": "Laseen",
+      "kind": "Adjunct to Empress",
+      "category": "command",
+      "summary": "Lorn serves as Adjunct to Empress Laseen.",
+      "confidence": 0.92,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Laseen",
+      "target": "Malazan Empire",
+      "kind": "imperial authority",
+      "category": "command",
+      "summary": "Laseen is the Empress whose authority frames the imperial response.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Lorn",
+      "target": "Unnamed Itko Kan captain",
+      "kind": "reports at massacre site",
+      "category": "command",
+      "summary": "The local captain reports to Lorn and is uneasy around the Adjunct.",
+      "confidence": 0.82,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Ganoes Paran",
+      "target": "Topper",
+      "kind": "Warren interception",
+      "category": "contact",
+      "summary": "Topper intercepts Paran by Warren; their exchange is civil but tense.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Topper",
+      "target": "Claw",
+      "kind": "Claw affiliation",
+      "category": "faction",
+      "summary": "Topper is identified with the Claw, an imperial covert organization implied in the chapter.",
+      "confidence": 0.76,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Sorry",
+      "target": "Aragan",
+      "kind": "questioned / recorded",
+      "category": "contact",
+      "summary": "Aragan questions the new soldier Sorry and records her attachment.",
+      "confidence": 0.82,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Sorry",
+      "target": "Bridgeburners",
+      "kind": "attached to unit",
+      "category": "faction",
+      "summary": "By the end of the chapter, Sorry is recorded as attached to the Bridgeburners.",
+      "confidence": 0.78,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Bridgeburners",
+      "target": "Dujek Onearm",
+      "kind": "under High Fist command",
+      "category": "command",
+      "summary": "The Bridgeburners are described under High Fist Dujek Onearm.",
+      "confidence": 0.78,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Dujek Onearm",
+      "target": "Onearm's Host",
+      "kind": "command namesake",
+      "category": "command",
+      "summary": "Onearm's Host is a military command under High Fist Dujek Onearm.",
+      "confidence": 0.72,
+      "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Ilgrand Lender",
+      "target": "Sorry",
+      "kind": "debt / repayment mention",
+      "category": "uncertain",
+      "summary": "The fishergirl mentions Ilgrand Lender in connection with debt or repayment after fishing gear is lost.",
+      "confidence": 0.55,
+      "firstSeen": "CHAPTER ONE"
     }
   ]
 }
