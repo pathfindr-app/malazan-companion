@@ -5,10 +5,21 @@
     "author": "Steven Erikson"
   },
   "boundary": {
-    "through_position": 16,
-    "chapter": "Chapter One"
+    "through_position": 17,
+    "chapter": "Chapter Two"
   },
   "characters": [
+    {
+      "name": "A'Karonys",
+      "type": "character",
+      "summary": "A short, round fire-wielding High Mage whose burning staff is taller than a spear. During the battle with Moon's Spawn, he unleashes fire before being frozen and crushed.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/akaronys-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
     {
       "name": "Ammanas",
       "type": "character",
@@ -16,8 +27,19 @@
       "confidence": 0.86,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
-      "image": "assets/characters/ammanas-chapter-one-canon.png",
-      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "image": "assets/characters/ammanas-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Anomander Rake",
+      "type": "character",
+      "summary": "Named as the Lord of Moon's Spawn and Lord of the black-skinned Tiste Andii. He appears at a distance on the floating fortress, long silver hair blowing, and unleashes devastating Elder magic.",
+      "confidence": 0.9,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/anomander-rake-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
       "imageStatus": "canon"
     },
     {
@@ -27,8 +49,41 @@
       "confidence": 0.82,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
-      "image": "assets/characters/aragan-chapter-one-canon.png",
-      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "image": "assets/characters/aragan-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Bellurdan",
+      "type": "character",
+      "summary": "A Thelomen giant and lifelong companion of Nightchill, selected as one of the High Mages for the attack. He crushes a demon with his hands and later mournfully gathers Nightchill's remains.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/bellurdan-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Caladan Brood",
+      "type": "character",
+      "summary": "A warlord mentioned as commanding Tiste Andii forces alongside the Crimson Guard against the Malazan 5th Army. He is associated with old epic poetry, but does not appear directly in the chapter.",
+      "confidence": 0.76,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/caladan-brood-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Calot",
+      "type": "character",
+      "summary": "A thin, century-old mage in Tattersail's cadre and her intimate companion. He jokes through fear before the assault on Moon's Spawn, then dies defending Tattersail from a blast during the battle.",
+      "confidence": 0.92,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/calot-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
       "imageStatus": "canon"
     },
     {
@@ -38,8 +93,19 @@
       "confidence": 0.86,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
-      "image": "assets/characters/cotillion-chapter-one-canon.png",
-      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "image": "assets/characters/cotillion-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Dancer",
+      "type": "character",
+      "summary": "A figure from Tattersail's memory, linked to the night before Mock's throat was opened and before an unnamed future Emperor stole into her master's Hold. No direct scene details are shown in this chapter.",
+      "confidence": 0.58,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/dancer-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
       "imageStatus": "canon"
     },
     {
@@ -49,8 +115,41 @@
       "confidence": 0.76,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
-      "image": "assets/characters/dujek-onearm-chapter-one-canon.png",
-      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "image": "assets/characters/dujek-onearm-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Felisin",
+      "type": "character",
+      "summary": "A name attached to the chapter's opening verse before the Pale sequence. No scene details are provided here, so identity and relevance remain unclear at this boundary.",
+      "confidence": 0.5,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/felisin-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Fiddler",
+      "type": "character",
+      "summary": "A sapper in the Bridgeburners, mentioned as working with Hedge on the collapsed tunnels and as someone who called Sorry uncanny. He does not directly appear in the chapter's scenes.",
+      "confidence": 0.72,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/fiddler-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Fisher Keltath",
+      "type": "character",
+      "summary": "Named as the author of the epic poem 'Anomandaris', which Tattersail recalls during the discussion of Caladan Brood and Anomander Rake. He does not appear directly.",
+      "confidence": 0.62,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/fisher-keltath-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
       "imageStatus": "canon"
     },
     {
@@ -60,8 +159,8 @@
       "confidence": 0.62,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
-      "image": "assets/characters/fishergirls-father-chapter-one-canon.png",
-      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "image": "assets/characters/fishergirls-father-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
       "imageStatus": "canon"
     },
     {
@@ -71,8 +170,8 @@
       "confidence": 0.92,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
-      "image": "assets/characters/ganoes-paran-chapter-one-canon.png",
-      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "image": "assets/characters/ganoes-paran-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
       "imageStatus": "canon"
     },
     {
@@ -82,8 +181,30 @@
       "confidence": 0.78,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
-      "image": "assets/characters/garnet-chapter-one-canon.png",
-      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "image": "assets/characters/garnet-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Hairlock",
+      "type": "character",
+      "summary": "A badly wounded wizard of the 2nd Army cadre, combative and secretive, who survives the battle long enough for Quick Ben to shift his soul into a small wooden marionette. He claims lost arts and wants answers about Tayschrenn.",
+      "confidence": 0.94,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/hairlock-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Hedge",
+      "type": "character",
+      "summary": "A Bridgeburner sapper mentioned with Fiddler as working on the collapsed tunnels after the catastrophe beneath Pale. He does not directly appear in the chapter's scenes.",
+      "confidence": 0.68,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/hedge-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
       "imageStatus": "canon"
     },
     {
@@ -93,8 +214,19 @@
       "confidence": 0.55,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
-      "image": "assets/characters/ilgrand-lender-chapter-one-canon.png",
-      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "image": "assets/characters/ilgrand-lender-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Kalam",
+      "type": "character",
+      "summary": "A large, black-skinned Seven Cities soldier in Whiskeyjack's squad with a quiet, dangerous glide. Tattersail reads him as a killer, and he helps guard Quick Ben's rite before giving Tattersail the wrapped object.",
+      "confidence": 0.92,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/kalam-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
       "imageStatus": "canon"
     },
     {
@@ -104,8 +236,8 @@
       "confidence": 0.84,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
-      "image": "assets/characters/laseen-chapter-one-canon.png",
-      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "image": "assets/characters/laseen-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
       "imageStatus": "canon"
     },
     {
@@ -115,8 +247,63 @@
       "confidence": 0.92,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
-      "image": "assets/characters/lorn-chapter-one-canon.png",
-      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "image": "assets/characters/lorn-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Mallet",
+      "type": "character",
+      "summary": "A Bridgeburner mentioned by Whiskeyjack as one of the squad voices in his ear. No direct appearance or details are shown yet beyond that squad association.",
+      "confidence": 0.58,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/mallet-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Mock",
+      "type": "character",
+      "summary": "A figure from Tattersail's memory whose throat was opened on a past night connected to Dancer and the man who would later rule an Empire. No direct appearance occurs in this chapter.",
+      "confidence": 0.56,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/mock-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Nedurian",
+      "type": "character",
+      "summary": "The former commander of Tattersail's cadre, mentioned as having died at Mott Wood before Dujek chose Tattersail to command. He does not appear directly.",
+      "confidence": 0.58,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/nedurian-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Nightchill",
+      "type": "character",
+      "summary": "One of the three High Mages chosen for the attack on Moon's Spawn. She is described as raven-haired, tall, imperious, and cruel; she is later torn apart by a demon during the battle.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/nightchill-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Quick Ben",
+      "type": "character",
+      "summary": "A tall, thin, black-skinned Seven Cities mage in Whiskeyjack's squad. Tattersail senses unusual power in him; he performs the dangerous soul-shifting rite on Hairlock and seems deeply wary of Sorry.",
+      "confidence": 0.94,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/quick-ben-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
       "imageStatus": "canon"
     },
     {
@@ -126,8 +313,19 @@
       "confidence": 0.9,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
-      "image": "assets/characters/rigga-chapter-one-canon.png",
-      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "image": "assets/characters/rigga-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Rusty",
+      "type": "character",
+      "summary": "A sergeant in the Seventh Regiment mentioned by Tattersail when she recognizes a marine at Dujek's command tent. He is not directly seen in the chapter.",
+      "confidence": 0.54,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/rusty-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
       "imageStatus": "canon"
     },
     {
@@ -137,8 +335,19 @@
       "confidence": 0.82,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
-      "image": "assets/characters/sorry-chapter-one-canon.jpg",
-      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "image": "assets/characters/sorry-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Tattersail",
+      "type": "character",
+      "summary": "A surviving sorceress commanding the 2nd Army's wizard cadre at Pale. She is exhausted, grieving Calot and the dead soldiers around her, suspicious of Tayschrenn, and drawn into the Bridgeburners' hidden plan with Hairlock.",
+      "confidence": 0.96,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/tattersail-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
       "imageStatus": "canon"
     },
     {
@@ -148,8 +357,19 @@
       "confidence": 0.78,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
-      "image": "assets/characters/tavore-paran-chapter-one-canon.png",
-      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "image": "assets/characters/tavore-paran-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Tayschrenn",
+      "type": "character",
+      "summary": "Laseen's High Mage, smooth, hooded, dark-faced, and menacing. He leads the attack on Moon's Spawn, clashes with Hairlock and Dujek, and is suspected by Tattersail and the Bridgeburners after the catastrophic battle.",
+      "confidence": 0.92,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/tayschrenn-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
       "imageStatus": "canon"
     },
     {
@@ -159,8 +379,19 @@
       "confidence": 0.9,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
-      "image": "assets/characters/topper-chapter-one-canon.png",
-      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "image": "assets/characters/topper-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Trotts",
+      "type": "character",
+      "summary": "A Bridgeburner mentioned by Whiskeyjack as another squad member talking in his ear. No direct appearance or visual details are shown yet.",
+      "confidence": 0.56,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/trotts-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
       "imageStatus": "canon"
     },
     {
@@ -170,12 +401,39 @@
       "confidence": 0.72,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
-      "image": "assets/characters/unnamed-itko-kan-captain-chapter-one-canon.png",
-      "imageStyle": "classic Japanese anime film style, spoiler-safe through Chapter One",
+      "image": "assets/characters/unnamed-itko-kan-captain-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStatus": "canon"
+    },
+    {
+      "name": "Whiskeyjack",
+      "type": "character",
+      "summary": "Sergeant of the Ninth Squad of the Bridgeburners. Exhausted, bearded, and carrying the weight of legend, he has lost most of his people beneath Pale and suspects someone in the Empire wants the Bridgeburners dead.",
+      "confidence": 0.94,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17,
+      "image": "assets/characters/whiskeyjack-chapter-two-canon.png",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
       "imageStatus": "canon"
     }
   ],
   "factions": [
+    {
+      "name": "2nd Army",
+      "type": "faction",
+      "summary": "The Malazan army force around Pale, including Tattersail's wizard cadre and Dujek's command. It suffers catastrophic losses during the assault on Moon's Spawn.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17
+    },
+    {
+      "name": "5th Army",
+      "type": "faction",
+      "summary": "A battered Malazan army pushed hard in the North Campaign against Caladan Brood, the Tiste Andii, and the Crimson Guard.",
+      "confidence": 0.72,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17
+    },
     {
       "name": "Bridgeburners",
       "type": "faction",
@@ -191,6 +449,14 @@
       "confidence": 0.76,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16
+    },
+    {
+      "name": "Crimson Guard",
+      "type": "faction",
+      "summary": "Mercenaries allied with Caladan Brood and Tiste Andii forces against the Malazan 5th Army. They are mentioned but not shown directly.",
+      "confidence": 0.72,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17
     },
     {
       "name": "House Paran",
@@ -209,12 +475,36 @@
       "firstSeenPosition": 16
     },
     {
+      "name": "Moranth Black",
+      "type": "faction",
+      "summary": "Black-armoured Moranth legions who enter Pale after the siege and receive an hour of slaughter against the city's people.",
+      "confidence": 0.82,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17
+    },
+    {
       "name": "Onearm's Host",
       "type": "faction",
       "summary": "A military command under High Fist Dujek Onearm, mentioned in connection with the Bridgeburners.",
       "confidence": 0.72,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16
+    },
+    {
+      "name": "Pale",
+      "type": "faction",
+      "summary": "A Free City under siege by the Malazan Empire. It falls in Chapter Two after the attack on Moon's Spawn and the Moranth entry into the city.",
+      "confidence": 0.84,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17
+    },
+    {
+      "name": "Tiste Andii",
+      "type": "faction",
+      "summary": "A sorcerous people associated with Moon's Spawn and Anomander Rake. They are described as black-skinned, linked to Elder magic and Mother Dark, and dangerous to the Malazans.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER TWO",
+      "firstSeenPosition": 17
     }
   ],
   "mysteries": [
@@ -434,6 +724,254 @@
       "summary": "The fishergirl mentions Ilgrand Lender in connection with debt or repayment after fishing gear is lost.",
       "confidence": 0.55,
       "firstSeen": "CHAPTER ONE"
+    },
+    {
+      "source": "Tattersail",
+      "target": "2nd Army",
+      "kind": "cadre command",
+      "category": "faction",
+      "summary": "Tattersail commands the surviving wizard cadre attached to the 2nd Army during the battle at Pale.",
+      "confidence": 0.88,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Tattersail",
+      "target": "Calot",
+      "kind": "cadre partners / intimate bond",
+      "category": "bond",
+      "summary": "Calot is Tattersail’s cadre companion and intimate partner; he dies shielding her during the battle.",
+      "confidence": 0.9,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Tattersail",
+      "target": "Hairlock",
+      "kind": "cadre colleagues / uneasy alliance",
+      "category": "contact",
+      "summary": "Hairlock and Tattersail serve in the same mage cadre, and after the battle he draws her into his suspicions.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Tattersail",
+      "target": "Tayschrenn",
+      "kind": "suspected betrayal",
+      "category": "mystery",
+      "summary": "Tattersail suspects Tayschrenn’s actions during the battle may have killed her comrades, but proof and motive remain unresolved.",
+      "confidence": 0.78,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Tayschrenn",
+      "target": "Laseen",
+      "kind": "acts under Empress orders",
+      "category": "command",
+      "summary": "Tayschrenn frames his decisions at Pale as Empress Laseen’s orders.",
+      "confidence": 0.84,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Tayschrenn",
+      "target": "Nightchill",
+      "kind": "selected High Mage",
+      "category": "command",
+      "summary": "Nightchill is one of the High Mages Tayschrenn selects for the attack on Moon’s Spawn.",
+      "confidence": 0.84,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Tayschrenn",
+      "target": "Bellurdan",
+      "kind": "selected High Mage",
+      "category": "command",
+      "summary": "Bellurdan is one of the High Mages Tayschrenn selects for the attack on Moon’s Spawn.",
+      "confidence": 0.84,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Tayschrenn",
+      "target": "A'Karonys",
+      "kind": "selected High Mage",
+      "category": "command",
+      "summary": "A’Karonys is one of the High Mages Tayschrenn selects for the attack on Moon’s Spawn.",
+      "confidence": 0.84,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Nightchill",
+      "target": "Bellurdan",
+      "kind": "lifelong companions",
+      "category": "bond",
+      "summary": "Nightchill and Bellurdan are described as lifelong companions.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Anomander Rake",
+      "target": "Tiste Andii",
+      "kind": "lord of the Tiste Andii",
+      "category": "faction",
+      "summary": "Anomander Rake is named as Lord of the black-skinned Tiste Andii.",
+      "confidence": 0.88,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Anomander Rake",
+      "target": "Moon's Spawn",
+      "kind": "lord of the floating fortress",
+      "category": "faction",
+      "summary": "Rake is identified as the lord associated with Moon’s Spawn above Pale.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Anomander Rake",
+      "target": "Caladan Brood",
+      "kind": "allied / companion in report and poem",
+      "category": "uncertain",
+      "summary": "The chapter links Rake and Caladan Brood through the war against the Empire and through old poetry, but their exact relationship remains known-so-far only.",
+      "confidence": 0.68,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Caladan Brood",
+      "target": "Crimson Guard",
+      "kind": "allied forces mentioned",
+      "category": "faction",
+      "summary": "Brood is mentioned alongside Tiste Andii and Crimson Guard forces opposing Malazan armies.",
+      "confidence": 0.7,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Whiskeyjack",
+      "target": "Bridgeburners",
+      "kind": "squad sergeant",
+      "category": "command",
+      "summary": "Whiskeyjack commands a surviving Bridgeburner squad after the disaster beneath Pale.",
+      "confidence": 0.9,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Whiskeyjack",
+      "target": "Quick Ben",
+      "kind": "sergeant and squad mage",
+      "category": "command",
+      "summary": "Quick Ben waits on Whiskeyjack’s approval before completing the dangerous rite around Hairlock.",
+      "confidence": 0.88,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Whiskeyjack",
+      "target": "Kalam",
+      "kind": "squad command",
+      "category": "command",
+      "summary": "Kalam is one of Whiskeyjack’s Bridgeburners and acts with Quick Ben during the post-battle rite.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Whiskeyjack",
+      "target": "Sorry",
+      "kind": "uneasy recruit under command",
+      "category": "mystery",
+      "summary": "Whiskeyjack treats Sorry as a recruit in his squad but is deeply unsettled by her presence.",
+      "confidence": 0.82,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Quick Ben",
+      "target": "Kalam",
+      "kind": "dangerous cooperation",
+      "category": "bond",
+      "summary": "Kalam protects the space around Quick Ben while Quick Ben works the lost rite on Hairlock.",
+      "confidence": 0.84,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Quick Ben",
+      "target": "Hairlock",
+      "kind": "soul-shifting rite",
+      "category": "mystery",
+      "summary": "Quick Ben shifts Hairlock’s soul into a marionette using a lost and dangerous art.",
+      "confidence": 0.9,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Hairlock",
+      "target": "Tayschrenn",
+      "kind": "suspected enemy",
+      "category": "mystery",
+      "summary": "Hairlock believes Tayschrenn’s actions at Pale need answers and pulls Tattersail into that suspicion.",
+      "confidence": 0.78,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Fiddler",
+      "target": "Hedge",
+      "kind": "sapper pair mentioned",
+      "category": "faction",
+      "summary": "Fiddler and Hedge are mentioned together as sappers working on the collapsed tunnels.",
+      "confidence": 0.72,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Fiddler",
+      "target": "Bridgeburners",
+      "kind": "sapper in unit",
+      "category": "faction",
+      "summary": "Fiddler is mentioned as a Bridgeburner sapper.",
+      "confidence": 0.74,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Hedge",
+      "target": "Bridgeburners",
+      "kind": "sapper in unit",
+      "category": "faction",
+      "summary": "Hedge is mentioned with Fiddler among the Bridgeburners.",
+      "confidence": 0.72,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Mallet",
+      "target": "Bridgeburners",
+      "kind": "squad member mentioned",
+      "category": "faction",
+      "summary": "Mallet is named by Whiskeyjack among the squad voices around him.",
+      "confidence": 0.58,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Trotts",
+      "target": "Bridgeburners",
+      "kind": "squad member mentioned",
+      "category": "faction",
+      "summary": "Trotts is named by Whiskeyjack among the squad voices around him.",
+      "confidence": 0.56,
+      "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Dancer",
+      "target": "Mock",
+      "kind": "memory of past violence",
+      "category": "uncertain",
+      "summary": "Tattersail’s memory links Dancer and Mock to a past night of violence, but details remain unresolved.",
+      "confidence": 0.56,
+      "firstSeen": "CHAPTER TWO"
+    }
+  ],
+  "visualReferences": [
+    {
+      "name": "Warren doorway / threshold",
+      "type": "concept",
+      "category": "Magic / place",
+      "summary": "A spoiler-safe visual metaphor for a Warren as a dangerous threshold: part doorway, part hidden route through another layer of reality. Based only on early references to people arriving, intercepting, or travelling by Warren.",
+      "firstSeen": "CHAPTER ONE",
+      "firstSeenPosition": 16,
+      "image": "assets/concepts/warren-door-threshold-chapter-three.png",
+      "imageAlt": "Spoiler-safe concept art of a Warren as a dark doorway-like threshold in the air",
+      "imageStyle": "Painterly oil-and-gouache dark fantasy threshold view, spoiler-safe through Chapter Three",
+      "imageStatus": "canon-reference"
     }
   ]
 }
