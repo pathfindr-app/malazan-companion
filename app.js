@@ -52,7 +52,7 @@ function technicalBoundary(boundary = {}) {
   return "Chapter label shown instead of raw source indexing";
 }
 
-const GUIDE_DATA_URL = "data/guide.json?v=20260708-warren-door-reference";
+const GUIDE_DATA_URL = "data/guide.json?v=20260708-quorl-reference";
 
 async function loadGuide() {
   try {
