@@ -959,5 +959,19 @@
       "confidence": 0.56,
       "firstSeen": "CHAPTER TWO"
     }
+  ],
+  "visualReferences": [
+    {
+      "name": "Warren doorway / threshold",
+      "type": "concept",
+      "category": "Magic / place",
+      "summary": "A spoiler-safe visual metaphor for a Warren as a dangerous threshold: part doorway, part hidden route through another layer of reality. Based only on early references to people arriving, intercepting, or travelling by Warren.",
+      "firstSeen": "CHAPTER ONE",
+      "firstSeenPosition": 16,
+      "image": "assets/concepts/warren-door-threshold-chapter-three.png",
+      "imageAlt": "Spoiler-safe concept art of a Warren as a dark doorway-like threshold in the air",
+      "imageStyle": "Painterly oil-and-gouache dark fantasy threshold view, spoiler-safe through Chapter Three",
+      "imageStatus": "canon-reference"
+    }
   ]
 }

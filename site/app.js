@@ -52,7 +52,7 @@ function technicalBoundary(boundary = {}) {
   return "Chapter label shown instead of raw source indexing";
 }
 
-const GUIDE_DATA_URL = "data/guide.json?v=20260603-chapter-two-cinematic-portraits";
+const GUIDE_DATA_URL = "data/guide.json?v=20260708-warren-door-reference";
 
 async function loadGuide() {
   try {
@@ -405,6 +405,38 @@ function renderSideRail(guide) {
   $("#mysteries").innerHTML = mysteries.map(mysteryTemplate).join("") || `<p>No mysteries exported yet.</p>`;
 }
 
+function visualReferenceTemplate(item) {
+  const name = item.name || "Visual reference";
+  const category = item.category || item.type || "Known-so-far reference";
+  const firstSeen = item.firstSeen || "Current boundary";
+  const image = item.image
+    ? `<figure class="reference-art"><img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt || `Spoiler-safe reference for ${name}`)}" loading="lazy" /></figure>`
+    : "";
+
+  return `
+    <article class="reference-card">
+      ${image}
+      <div class="reference-copy">
+        <div class="card-meta">
+          <span class="badge">${escapeHtml(category)}</span>
+          <span class="badge">Revealed: ${escapeHtml(toTitleCase(firstSeen))}</span>
+        </div>
+        <h3>${escapeHtml(name)}</h3>
+        <p>${escapeHtml(item.summary || "Spoiler-safe visual reference through the current boundary.")}</p>
+      </div>
+    </article>
+  `;
+}
+
+function renderVisualReferences(guide) {
+  const references = guide.visualReferences || [];
+  const count = $("#reference-count");
+  const target = $("#visual-references");
+  if (!count || !target) return;
+  count.textContent = `${references.length} ${references.length === 1 ? "reference" : "references"}`;
+  target.innerHTML = references.map(visualReferenceTemplate).join("") || `<p>No object or place references exported yet.</p>`;
+}
+
 function moveCard(delta) {
   applyFilter();
   const total = state.visibleCharacters.length;
@@ -457,6 +489,7 @@ function renderGuide(guide) {
   renderRelationshipMap(guide);
   renderStack();
   renderSideRail(guide);
+  renderVisualReferences(guide);
 }
 
 bindInteractions();
