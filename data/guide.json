@@ -972,6 +972,18 @@
       "imageAlt": "Spoiler-safe concept art of a Warren as a dark doorway-like threshold in the air",
       "imageStyle": "Painterly oil-and-gouache dark fantasy threshold view, spoiler-safe through Chapter Three",
       "imageStatus": "canon-reference"
+    },
+    {
+      "name": "Quorl",
+      "type": "creature",
+      "category": "Creature / travel",
+      "summary": "A spoiler-safe visual reference for the flying creatures used for overland travel. Known-so-far visual anchors: four wings, thin translucent membranes, and a dangerous sense of altitude.",
+      "firstSeen": "CHAPTER THREE",
+      "firstSeenPosition": 18,
+      "image": "assets/concepts/quorl-chapter-three.png",
+      "imageAlt": "Spoiler-safe concept art of a four-winged quorl flying high above rugged terrain",
+      "imageStyle": "Painterly oil-and-gouache dark fantasy field-guide creature plate, spoiler-safe through Chapter Three",
+      "imageStatus": "canon-reference"
     }
   ]
 }
