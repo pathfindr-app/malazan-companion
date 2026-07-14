@@ -1413,6 +1413,18 @@
       "imageStyle": "Painterly oil-and-gouache dark fantasy field-guide creature plate, spoiler-safe through Chapter Three",
       "imageStatus": "canon-reference",
       "atlasCategory": "creature"
+    },
+    {
+      "name": "Oponn / Twin Jesters of Chance",
+      "type": "magic concept",
+      "category": "Magic / Ascendant power",
+      "atlasCategory": "magic",
+      "summary": "A spoiler-safe symbolic reference for the paired power of chance as understood through Chapter Four: meddling intervention, opposed luck, a coin-like pivot, and lives being nudged away from clean death or certainty.",
+      "firstSeen": "Chapter Four",
+      "image": "assets/concepts/oponn-chance-twin-jesters-chapter-four.png",
+      "imageAlt": "Spoiler-safe symbolic Atlas image for Oponn: two shadowed jester-like presences and a suspended coin over a map of crossed paths.",
+      "imageStyle": "Painterly oil-and-gouache dark fantasy Atlas reference, symbolic only, spoiler-safe through Chapter Four",
+      "imageStatus": "canon-reference"
     }
   ]
 }

@@ -10,7 +10,7 @@ const fallbackGuide = {
   visualReferences: []
 };
 
-const GUIDE_DATA_URL = "data/guide.json?v=20260714-atlas-overhaul";
+const GUIDE_DATA_URL = "data/guide.json?v=20260714-world-web-full-tilt";
 
 const state = {
   guide: fallbackGuide,
@@ -337,18 +337,227 @@ function relationshipDetailTemplate(relationship, related = []) {
   `;
 }
 
+
+let graphRuntime = null;
+
+function stopGraphRuntime() {
+  if (graphRuntime?.frame) cancelAnimationFrame(graphRuntime.frame);
+  if (graphRuntime?.resizeObserver) graphRuntime.resizeObserver.disconnect();
+  graphRuntime = null;
+}
+
+function relationColor(category = "contact", alpha = 1) {
+  const colors = {
+    command: `rgba(240, 217, 157, ${alpha})`,
+    lineage: `rgba(152, 184, 141, ${alpha})`,
+    mystery: `rgba(170, 146, 230, ${alpha})`,
+    uncertain: `rgba(170, 146, 230, ${alpha})`,
+    faction: `rgba(205, 229, 199, ${alpha})`,
+    bond: `rgba(232, 171, 124, ${alpha})`,
+    service: `rgba(232, 171, 124, ${alpha})`,
+    conflict: `rgba(210, 91, 68, ${alpha})`
+  };
+  return colors[category] || `rgba(118, 168, 189, ${alpha})`;
+}
+
+function startGraphRuntime(map, graphNodes, graphLinks, positions) {
+  stopGraphRuntime();
+  const canvas = map.querySelector(".map-fx-canvas");
+  const stage = map.querySelector(".map-canvas");
+  if (!canvas || !stage || !graphNodes.length) return;
+  const ctx = canvas.getContext("2d", { alpha: true });
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const nodeButtons = new Map($$(".map-node", map).map((button) => [button.dataset.nodeName, button]));
+  const nodeMap = new Map();
+  let pointer = { x: 0.5, y: 0.5, active: false, dragging: null };
+
+  graphNodes.forEach((node, index) => {
+    const [px, py] = positions.get(node.id) || graphNodePosition(node, index, graphNodes.length);
+    nodeMap.set(node.id, { ...node, x: px / 100, y: py / 100, vx: 0, vy: 0, ax: px / 100, ay: py / 100, mass: 1 + Math.min(3, node.links / 5), pulse: Math.random() * Math.PI * 2 });
+  });
+
+  const links = graphLinks.map((relationship) => ({ ...relationship, sourceNode: nodeMap.get(relationship.source), targetNode: nodeMap.get(relationship.target) })).filter((relationship) => relationship.sourceNode && relationship.targetNode);
+  const particles = Array.from({ length: Math.min(130, Math.max(38, links.length * 3)) }, (_, index) => ({ link: links[index % Math.max(1, links.length)], t: Math.random(), speed: 0.0018 + Math.random() * 0.0042, size: 0.7 + Math.random() * 1.8, phase: Math.random() * Math.PI * 2 })).filter((particle) => particle.link);
+
+  function resize() {
+    const rect = stage.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.max(1, Math.floor(rect.width * dpr));
+    canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+    canvas.style.width = `${rect.width}px`;
+    canvas.style.height = `${rect.height}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function updateNodeDom() {
+    nodeMap.forEach((node) => {
+      const button = nodeButtons.get(node.id);
+      if (!button) return;
+      button.style.setProperty("--x", (node.x * 100).toFixed(3));
+      button.style.setProperty("--y", (node.y * 100).toFixed(3));
+      const dx = node.x - pointer.x;
+      const dy = node.y - pointer.y;
+      const glow = pointer.active ? Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / 0.22) : 0;
+      button.style.setProperty("--hover-glow", glow.toFixed(3));
+    });
+  }
+
+  function stepPhysics() {
+    const list = Array.from(nodeMap.values());
+    list.forEach((node) => {
+      let fx = (node.ax - node.x) * 0.0045;
+      let fy = (node.ay - node.y) * 0.0045;
+      if (pointer.active && !pointer.dragging) {
+        const dx = node.x - pointer.x;
+        const dy = node.y - pointer.y;
+        const distSq = Math.max(0.0009, dx * dx + dy * dy);
+        const force = Math.min(0.0016, 0.000013 / distSq);
+        fx += dx * force;
+        fy += dy * force;
+      }
+      node.fx = fx;
+      node.fy = fy;
+    });
+
+    for (let i = 0; i < list.length; i++) {
+      for (let j = i + 1; j < list.length; j++) {
+        const a = list[i], b = list[j];
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        const distSq = Math.max(0.0018, dx * dx + dy * dy);
+        const force = Math.min(0.0015, 0.000036 / distSq);
+        a.fx += dx * force;
+        a.fy += dy * force;
+        b.fx -= dx * force;
+        b.fy -= dy * force;
+      }
+    }
+
+    links.forEach((link) => {
+      const a = link.sourceNode, b = link.targetNode;
+      const dx = b.x - a.x;
+      const dy = b.y - a.y;
+      const dist = Math.max(0.001, Math.sqrt(dx * dx + dy * dy));
+      const desired = 0.16 + (link.category === "mystery" ? 0.035 : 0);
+      const force = (dist - desired) * 0.003;
+      const fx = (dx / dist) * force;
+      const fy = (dy / dist) * force;
+      a.fx += fx; a.fy += fy;
+      b.fx -= fx; b.fy -= fy;
+    });
+
+    list.forEach((node) => {
+      if (pointer.dragging === node.id) {
+        node.x += (pointer.x - node.x) * 0.32;
+        node.y += (pointer.y - node.y) * 0.32;
+        node.vx = 0; node.vy = 0;
+        return;
+      }
+      node.vx = (node.vx + node.fx / node.mass) * 0.88;
+      node.vy = (node.vy + node.fy / node.mass) * 0.88;
+      node.x = Math.min(0.94, Math.max(0.06, node.x + node.vx));
+      node.y = Math.min(0.94, Math.max(0.06, node.y + node.vy));
+      node.pulse += 0.025;
+    });
+  }
+
+  function draw() {
+    const rect = stage.getBoundingClientRect();
+    const w = rect.width;
+    const h = rect.height;
+    ctx.clearRect(0, 0, w, h);
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+    const time = performance.now() * 0.001;
+
+    links.forEach((link) => {
+      const a = link.sourceNode, b = link.targetNode;
+      const ax = a.x * w, ay = a.y * h, bx = b.x * w, by = b.y * h;
+      const mx = (ax + bx) / 2 + Math.sin(time + a.pulse) * 9;
+      const my = (ay + by) / 2 + Math.cos(time + b.pulse) * 9;
+      ctx.beginPath();
+      ctx.moveTo(ax, ay);
+      ctx.quadraticCurveTo(mx, my, bx, by);
+      ctx.strokeStyle = relationColor(link.category, link.category === "mystery" ? 0.38 : 0.26);
+      ctx.lineWidth = link.category === "mystery" ? 1.35 : 0.95;
+      if (link.category === "mystery" || link.category === "uncertain") ctx.setLineDash([5, 8]); else ctx.setLineDash([]);
+      ctx.shadowBlur = 14;
+      ctx.shadowColor = relationColor(link.category, 0.45);
+      ctx.stroke();
+    });
+    ctx.setLineDash([]);
+
+    particles.forEach((particle) => {
+      if (!prefersReducedMotion) particle.t = (particle.t + particle.speed) % 1;
+      const link = particle.link;
+      const a = link.sourceNode, b = link.targetNode;
+      const t = particle.t;
+      const ax = a.x * w, ay = a.y * h, bx = b.x * w, by = b.y * h;
+      const x = ax + (bx - ax) * t + Math.sin(t * Math.PI * 2 + particle.phase + time) * 7;
+      const y = ay + (by - ay) * t + Math.cos(t * Math.PI * 2 + particle.phase + time) * 7;
+      const fade = Math.sin(Math.PI * t);
+      ctx.beginPath();
+      ctx.arc(x, y, particle.size * (0.55 + fade), 0, Math.PI * 2);
+      ctx.fillStyle = relationColor(link.category, 0.26 + fade * 0.5);
+      ctx.shadowBlur = 18;
+      ctx.shadowColor = relationColor(link.category, 0.58);
+      ctx.fill();
+    });
+
+    nodeMap.forEach((node) => {
+      const x = node.x * w, y = node.y * h;
+      const radius = 18 + Math.min(18, node.links * 1.1) + Math.sin(node.pulse) * 2;
+      const gradient = ctx.createRadialGradient(x, y, 1, x, y, radius);
+      gradient.addColorStop(0, node.type === "faction" ? "rgba(152,184,141,.18)" : "rgba(240,217,157,.18)");
+      gradient.addColorStop(1, "rgba(240,217,157,0)");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
+    });
+
+    ctx.restore();
+    updateNodeDom();
+    if (!prefersReducedMotion) stepPhysics();
+    graphRuntime.frame = requestAnimationFrame(draw);
+  }
+
+  function pointerToGraph(event) {
+    const rect = stage.getBoundingClientRect();
+    return { x: Math.min(0.96, Math.max(0.04, (event.clientX - rect.left) / rect.width)), y: Math.min(0.96, Math.max(0.04, (event.clientY - rect.top) / rect.height)) };
+  }
+
+  const resizeObserver = new ResizeObserver(resize);
+  resizeObserver.observe(stage);
+  stage.addEventListener("pointermove", (event) => { pointer = { ...pointer, ...pointerToGraph(event), active: true }; });
+  stage.addEventListener("pointerleave", () => { pointer.active = false; pointer.dragging = null; });
+  stage.addEventListener("pointerup", () => { pointer.dragging = null; });
+  $$(".map-node", map).forEach((button) => {
+    button.addEventListener("pointerdown", (event) => {
+      pointer = { ...pointer, ...pointerToGraph(event), active: true, dragging: button.dataset.nodeName };
+      button.setPointerCapture?.(event.pointerId);
+    });
+  });
+
+  graphRuntime = { frame: null, resizeObserver };
+  resize();
+  draw();
+}
+
 function renderRelationshipMap(guide) {
   const map = $("#relationship-map");
   const detail = $("#map-detail");
   const count = $("#map-count");
   if (!map || !detail || !count) return;
+  stopGraphRuntime();
 
   const { nodes, relationships } = buildRelationshipGraph(guide);
   const positions = new Map(nodes.map((node, index) => [node.id, graphNodePosition(node, index, nodes.length)]));
   const visibleRelationships = relationships.filter((r) => relationshipPassesFilter(r) && relationshipPassesQuery(r));
   const visibleNames = new Set(visibleRelationships.flatMap((r) => [r.source, r.target]));
   const q = normalize(state.graphQuery);
-  count.textContent = `${visibleNames.size || nodes.length} visible nodes · ${visibleRelationships.length} links`;
+  const graphNodes = nodes.filter((node) => visibleNames.has(node.id) || (q && normalize(node.label).includes(q)));
+  const visibleNodeIds = new Set(graphNodes.map((node) => node.id));
+  const graphLinks = visibleRelationships.filter((relationship) => visibleNodeIds.has(relationship.source) && visibleNodeIds.has(relationship.target));
+  count.textContent = `${graphNodes.length || nodes.length} visible nodes · ${graphLinks.length} links`;
 
   if (!relationships.length) {
     map.innerHTML = `<div class="empty-state"><div><strong>No relationships exported yet.</strong><br />The map will fill as chapter data expands.</div></div>`;
@@ -356,69 +565,49 @@ function renderRelationshipMap(guide) {
     return;
   }
 
-  const lines = relationships.map((relationship, index) => {
-    const source = positions.get(relationship.source);
-    const target = positions.get(relationship.target);
-    if (!source || !target) return "";
-    const confidence = Number(relationship.confidence ?? 0.7);
-    const uncertain = confidence < 0.72 || relationship.category === "mystery" || relationship.category === "uncertain";
-    const isVisible = relationshipPassesFilter(relationship) && relationshipPassesQuery(relationship);
-    return `<button class="map-edge map-edge-${escapeHtml(relationship.category || "contact")} ${isVisible ? "is-visible" : "is-muted"}" data-link-index="${index}" style="--alpha:${Math.max(0.32, Math.min(0.95, confidence)).toFixed(2)}" aria-label="${escapeHtml(relationship.source)} to ${escapeHtml(relationship.target)}: ${escapeHtml(relationship.kind || "relationship")}"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="${source[0]}" y1="${source[1]}" x2="${target[0]}" y2="${target[1]}" class="${uncertain ? "uncertain" : ""}" /></svg></button>`;
-  }).join("");
-
-  const nodeButtons = nodes.map((node) => {
+  const nodeButtons = graphNodes.map((node) => {
     const [x, y] = positions.get(node.id);
-    const isVisible = !q && state.graphFilter === "all" ? true : visibleNames.has(node.id) || normalize(node.label).includes(q);
     const isMatched = q && normalize(node.label).includes(q);
     const size = Math.min(1.34, 0.82 + node.links * 0.055);
-    return `<button class="map-node map-node-${node.type} ${isVisible ? "is-visible" : "is-muted"} ${isMatched ? "is-matched" : ""}" data-node-name="${escapeHtml(node.id)}" style="--x:${x};--y:${y};--node-scale:${size.toFixed(2)}" aria-label="Show links for ${escapeHtml(node.label)}"><span>${escapeHtml(node.label)}</span><em>${node.links}</em></button>`;
+    return `<button class="map-node map-node-${node.type} is-visible ${isMatched ? "is-matched" : ""}" data-node-name="${escapeHtml(node.id)}" style="--x:${x};--y:${y};--node-scale:${size.toFixed(2)};--hover-glow:0" aria-label="Show links for ${escapeHtml(node.label)}"><span>${escapeHtml(node.label)}</span><em>${node.links}</em></button>`;
   }).join("");
 
-  map.innerHTML = `<div class="map-canvas"><div class="map-veil" aria-hidden="true"></div><div class="map-orb" aria-hidden="true"></div>${lines}${nodeButtons}</div>`;
-  detail.innerHTML = relationshipDetailTemplate(visibleRelationships[0] || relationships[0]);
+  map.innerHTML = `<div class="map-canvas"><canvas class="map-fx-canvas" aria-hidden="true"></canvas><div class="map-veil" aria-hidden="true"></div><div class="map-orb" aria-hidden="true"></div>${nodeButtons}</div>`;
+  detail.innerHTML = relationshipDetailTemplate(graphLinks[0] || visibleRelationships[0] || relationships[0]);
 
-  const chooseRelationship = (relationship, button) => {
-    const related = relationships.filter((r) => r.source === relationship.source || r.target === relationship.source || r.source === relationship.target || r.target === relationship.target);
-    detail.innerHTML = relationshipDetailTemplate(relationship, related);
-    $$(".map-edge, .map-node", map).forEach((element) => element.classList.remove("is-selected", "is-related"));
-    button?.classList.add("is-selected");
-    [relationship.source, relationship.target].forEach((name) => map.querySelector(`.map-node[data-node-name="${CSS.escape(name)}"]`)?.classList.add("is-related"));
-  };
-
-  $$(".map-edge", map).forEach((button) => {
-    const relationship = relationships[Number(button.dataset.linkIndex || 0)];
-    button.addEventListener("mouseenter", () => chooseRelationship(relationship, button));
-    button.addEventListener("click", () => chooseRelationship(relationship, button));
-  });
-
-  $$(".map-node", map).forEach((button) => {
+  const focusNode = (button) => {
     const name = button.dataset.nodeName || "";
     const related = relationships.filter((relationship) => relationship.source === name || relationship.target === name);
-    const focusNode = () => {
-      $$(".map-edge, .map-node", map).forEach((element) => element.classList.remove("is-selected", "is-related"));
-      button.classList.add("is-selected");
-      related.forEach((relationship) => {
-        const linkIndex = relationships.indexOf(relationship);
-        map.querySelector(`.map-edge[data-link-index="${linkIndex}"]`)?.classList.add("is-related");
-        map.querySelector(`.map-node[data-node-name="${CSS.escape(relationship.source === name ? relationship.target : relationship.source)}"]`)?.classList.add("is-related");
-      });
-      const characterIndex = (state.guide.characters || []).findIndex((character) => character.name === name);
-      if (characterIndex >= 0) {
-        state.query = "";
-        searchInput.value = "";
-        state.visibleCharacters = state.guide.characters || [];
-        state.activeIndex = characterIndex;
-        renderStack();
-      }
-      detail.innerHTML = `
-        <p class="eyebrow">Selected node</p>
-        <h3>${escapeHtml(name)}</h3>
-        <strong>${related.length} known-so-far ${related.length === 1 ? "connection" : "connections"}</strong>
-        <div class="thread-list">${related.slice(0, 10).map((relationship) => `<span>${escapeHtml(relationship.source === name ? relationship.target : relationship.source)} · ${escapeHtml(relationship.kind || graphCategoryLabel(relationship.category))}</span>`).join("")}</div>`;
-    };
-    button.addEventListener("mouseenter", focusNode);
-    button.addEventListener("click", focusNode);
+    const visibleRelated = graphLinks.filter((relationship) => relationship.source === name || relationship.target === name);
+    $$(".map-node", map).forEach((element) => element.classList.remove("is-selected", "is-related"));
+    button.classList.add("is-selected");
+    visibleRelated.forEach((relationship) => {
+      const other = relationship.source === name ? relationship.target : relationship.source;
+      map.querySelector(`.map-node[data-node-name="${CSS.escape(other)}"]`)?.classList.add("is-related");
+    });
+    const characterIndex = (state.guide.characters || []).findIndex((character) => character.name === name);
+    if (characterIndex >= 0) {
+      state.query = "";
+      searchInput.value = "";
+      state.visibleCharacters = state.guide.characters || [];
+      state.activeIndex = characterIndex;
+      renderStack();
+    }
+    detail.innerHTML = `
+      <p class="eyebrow">Selected node</p>
+      <h3>${escapeHtml(name)}</h3>
+      <strong>${related.length} known-so-far ${related.length === 1 ? "connection" : "connections"}</strong>
+      <p>${visibleRelated.length ? "The glowing orbit shows the currently visible threads. Use All for the full tangle." : "This node is present because of search or current filters."}</p>
+      <div class="thread-list">${related.slice(0, 10).map((relationship) => `<span>${escapeHtml(relationship.source === name ? relationship.target : relationship.source)} · ${escapeHtml(relationship.kind || graphCategoryLabel(relationship.category))}</span>`).join("")}</div>`;
+  };
+
+  $$(".map-node", map).forEach((button) => {
+    button.addEventListener("mouseenter", () => focusNode(button));
+    button.addEventListener("focus", () => focusNode(button));
+    button.addEventListener("click", () => focusNode(button));
   });
+
+  startGraphRuntime(map, graphNodes, graphLinks, positions);
 }
 
 function renderBoundary(guide) {
