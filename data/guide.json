@@ -5,8 +5,9 @@
     "author": "Steven Erikson"
   },
   "boundary": {
-    "through_position": 17,
-    "chapter": "Chapter Two"
+    "through_position": 19,
+    "chapter": "Chapter Four",
+    "label": "Through Chapter Four"
   },
   "characters": [
     {
@@ -17,18 +18,18 @@
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/akaronys-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Ammanas",
       "type": "character",
-      "summary": "A hooded, shadow-associated figure who appears with Cotillion and commands terrifying Hounds. He discusses using the fishergirl as something the Empress cannot trace. His power and agenda are unclear.",
+      "summary": "A hooded shadow-associated figure from Chapter One, later named in connection with Cotillion and Shadow's designs. Through Chapter Four, his overlap with Shadowthrone feels strongly suggested but should remain treated as known-so-far uncertainty.",
       "confidence": 0.86,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
       "image": "assets/characters/ammanas-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -39,7 +40,7 @@
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/anomander-rake-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -50,18 +51,18 @@
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
       "image": "assets/characters/aragan-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Bellurdan",
       "type": "character",
-      "summary": "A Thelomen giant and lifelong companion of Nightchill, selected as one of the High Mages for the attack. He crushes a demon with his hands and later mournfully gathers Nightchill's remains.",
-      "confidence": 0.86,
+      "summary": "A Thelomen High Mage and lifelong companion of Nightchill. After Pale he kneels beside her remains, horribly burned and grieving, while insisting Tayschrenn has always protected the Empire's dream.",
+      "confidence": 0.88,
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/bellurdan-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -72,7 +73,7 @@
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/caladan-brood-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -83,18 +84,18 @@
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/calot-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Cotillion",
       "type": "character",
-      "summary": "A black-clad figure who appears with Ammanas after the slaughter. He argues that the fishergirl should not simply be discarded and chooses her for some purpose. His nature and motives remain unclear.",
-      "confidence": 0.86,
+      "summary": "A shadow-associated assassin figure linked to the fishergirl in Chapter One and named again around Paran's murder. Chapter Four makes the connection between Cotillion, Shadow, and Sorry feel much more dangerous, though still not fully explained.",
+      "confidence": 0.9,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
       "image": "assets/characters/cotillion-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -105,18 +106,18 @@
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/dancer-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Dujek Onearm",
       "type": "character",
-      "summary": "A High Fist mentioned as commander of Onearm's Host and the Bridgeburners. Sorry is recorded as attached under his command, but he does not directly appear in this chapter.",
-      "confidence": 0.76,
+      "summary": "High Fist of the 2nd Army and commander of Onearm's Host. In Chapter Four he confirms Paran's assignment, voices the pressure to merge/disband forces, and privately gives Whiskeyjack permission to walk if the Darujhistan mission somehow succeeds.",
+      "confidence": 0.9,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
       "image": "assets/characters/dujek-onearm-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -127,18 +128,18 @@
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/felisin-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Fiddler",
       "type": "character",
-      "summary": "A sapper in the Bridgeburners, mentioned as working with Hedge on the collapsed tunnels and as someone who called Sorry uncanny. He does not directly appear in the chapter's scenes.",
-      "confidence": 0.72,
+      "summary": "A Bridgeburner sapper with a strong instinct for danger. Chapter Four makes him more visible: scarred from the tunnels, uneasy around Tattersail, and repeatedly sensing that something bad is about to break loose.",
+      "confidence": 0.9,
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/fiddler-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -149,7 +150,7 @@
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/fisher-keltath-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -160,18 +161,18 @@
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
       "image": "assets/characters/fishergirls-father-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Ganoes Paran",
       "type": "character",
-      "summary": "A young noble officer from House Paran of Unta, serving as a lieutenant. He inspects the massacre site, is placed on Adjunct Lorn's staff, and is sent toward Gerrom to ask questions.",
-      "confidence": 0.92,
+      "summary": "A young noble officer from House Paran, now sent by Adjunct Lorn to command Whiskeyjack's squad and stay close to Sorry. In Pale he is murdered by a shadow-linked assailant, held from death by Oponn's meddling, and later wounds the Hound Gear with his sword.",
+      "confidence": 0.97,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
       "image": "assets/characters/ganoes-paran-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -182,29 +183,29 @@
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
       "image": "assets/characters/garnet-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Hairlock",
       "type": "character",
-      "summary": "A badly wounded wizard of the 2nd Army cadre, combative and secretive, who survives the battle long enough for Quick Ben to shift his soul into a small wooden marionette. He claims lost arts and wants answers about Tayschrenn.",
-      "confidence": 0.94,
+      "summary": "A former 2nd Army mage now bound into a small wooden puppet body. He is using chaotic paths between Warrens to hunt whoever set up the Bridgeburners, but his mind is fraying and he is becoming dangerous even to Tattersail and Quick Ben.",
+      "confidence": 0.96,
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
-      "image": "assets/characters/hairlock-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "image": "assets/characters/hairlock-chapter-four-canon.png",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Hedge",
       "type": "character",
-      "summary": "A Bridgeburner sapper mentioned with Fiddler as working on the collapsed tunnels after the catastrophe beneath Pale. He does not directly appear in the chapter's scenes.",
-      "confidence": 0.68,
+      "summary": "A Bridgeburner sapper and card-player at Knobb's Inn. By Chapter Four he is present around Paran's recovery and is described by Mallet as the sort who adopts stray dogs and needy creatures.",
+      "confidence": 0.84,
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/hedge-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -215,51 +216,51 @@
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
       "image": "assets/characters/ilgrand-lender-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Kalam",
       "type": "character",
-      "summary": "A large, black-skinned Seven Cities soldier in Whiskeyjack's squad with a quiet, dangerous glide. Tattersail reads him as a killer, and he helps guard Quick Ben's rite before giving Tattersail the wrapped object.",
-      "confidence": 0.92,
+      "summary": "A large Seven Cities Bridgeburner and former Claw by implication. He works closely with Quick Ben, suspects Sorry, helps hide Paran after the attack, and is treated by the squad as the blade to Quick Ben's mind.",
+      "confidence": 0.94,
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/kalam-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Laseen",
       "type": "character",
-      "summary": "The Empress of the Malazan Empire, repeatedly mentioned as the source of imperial authority. Lorn serves as her Adjunct, and Ammanas/Cotillion discuss acting in ways she cannot trace.",
-      "confidence": 0.84,
+      "summary": "Empress of the Malazan Empire. Chapters Three and Four deepen the sense that her court may be moving against Dujek, Whiskeyjack, the Bridgeburners, and anyone still tied to the old Emperor's memory.",
+      "confidence": 0.86,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
       "image": "assets/characters/laseen-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Lorn",
       "type": "character",
-      "summary": "The Adjunct to Empress Laseen. She arrives by Warren, investigates the slaughter near Itko Kan, takes Paran onto her staff, and directs the response with cold authority.",
-      "confidence": 0.92,
+      "summary": "Adjunct to Empress Laseen and Paran's handler. Though offstage in Chapters Three and Four, her mission hangs over Paran: he is to join Whiskeyjack's squad, stay close to Sorry, and wait for the moment to act.",
+      "confidence": 0.9,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
       "image": "assets/characters/lorn-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Mallet",
       "type": "character",
-      "summary": "A Bridgeburner mentioned by Whiskeyjack as one of the squad voices in his ear. No direct appearance or details are shown yet beyond that squad association.",
-      "confidence": 0.58,
+      "summary": "The Bridgeburners' healer. In Chapter Four he treats Captain Paran and explains that something has already healed the flesh while leaving the deeper shock unresolved.",
+      "confidence": 0.86,
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/mallet-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -270,7 +271,7 @@
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/mock-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -281,7 +282,7 @@
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/nedurian-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -292,18 +293,18 @@
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/nightchill-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Quick Ben",
       "type": "character",
-      "summary": "A tall, thin, black-skinned Seven Cities mage in Whiskeyjack's squad. Tattersail senses unusual power in him; he performs the dangerous soul-shifting rite on Hairlock and seems deeply wary of Sorry.",
-      "confidence": 0.94,
+      "summary": "A tall, thin Seven Cities mage in Whiskeyjack's squad, far more powerful and knowledgeable than he lets on. He guides Hairlock through dangerous Warren work, suspects Sorry is tied to Shadow, and openly frightens Tattersail with the depth of his sorcery.",
+      "confidence": 0.96,
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/quick-ben-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -314,7 +315,7 @@
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
       "image": "assets/characters/rigga-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -325,29 +326,29 @@
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/rusty-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Sorry",
       "type": "character",
-      "summary": "A young fishergirl from Itko Kan who is caught beside the road during the imperial action near her village. After Rigga's death, two powerful figures take an interest in her; later she appears among soldiers and gives her name as Sorry. Identity and agency are uncertain at this point.",
-      "confidence": 0.82,
+      "summary": "Original Chapter One state: a young fishergirl from Itko Kan caught beside the road during imperial violence. After Rigga's death, shadow-associated powers take an interest in her; this entry preserves the first identity before the later Bridgeburner recruit state.",
+      "confidence": 0.86,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
       "image": "assets/characters/sorry-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Tattersail",
       "type": "character",
-      "summary": "A surviving sorceress commanding the 2nd Army's wizard cadre at Pale. She is exhausted, grieving Calot and the dead soldiers around her, suspicious of Tayschrenn, and drawn into the Bridgeburners' hidden plan with Hairlock.",
-      "confidence": 0.96,
+      "summary": "A surviving 2nd Army sorceress at Pale. By Chapter Four she is grieving, furious at Tayschrenn, cooperating uneasily with the Bridgeburners, guarding Hairlock, and newly caught in the clash between Oponn, Shadow, and the Hounds.",
+      "confidence": 0.97,
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/tattersail-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -358,40 +359,40 @@
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
       "image": "assets/characters/tavore-paran-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Tayschrenn",
       "type": "character",
-      "summary": "Laseen's High Mage, smooth, hooded, dark-faced, and menacing. He leads the attack on Moon's Spawn, clashes with Hairlock and Dujek, and is suspected by Tattersail and the Bridgeburners after the catastrophic battle.",
-      "confidence": 0.92,
+      "summary": "Laseen's High Mage at Pale. Through Chapter Four he remains a central suspect in the deaths at Pale, asks Tattersail for a Deck reading, cautiously hunts the strange Warren disturbances, and stands uneasily above Dujek and the 2nd Army.",
+      "confidence": 0.93,
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/tayschrenn-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Topper",
       "type": "character",
-      "summary": "A Claw who intercepts Paran by Warren and speaks with him during the journey. He is civil but dangerous, and Paran treats him with suspicion and hostility.",
+      "summary": "The Claw Master, a tall half-blood Tiste Andii in green, who finds Paran by Warren at sea and delivers Lorn's orders about Sorry, Whiskeyjack's squad, and Darujhistan.",
       "confidence": 0.9,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
       "image": "assets/characters/topper-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Trotts",
       "type": "character",
-      "summary": "A Bridgeburner mentioned by Whiskeyjack as another squad member talking in his ear. No direct appearance or visual details are shown yet.",
-      "confidence": 0.56,
+      "summary": "A Barghast Bridgeburner in the Ninth, tattooed and scarred, seen dealing cards with ponderous patience at Knobb's Inn before the squad leaves for Darujhistan.",
+      "confidence": 0.84,
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/trotts-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
@@ -402,26 +403,106 @@
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16,
       "image": "assets/characters/unnamed-itko-kan-captain-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
     },
     {
       "name": "Whiskeyjack",
       "type": "character",
-      "summary": "Sergeant of the Ninth Squad of the Bridgeburners. Exhausted, bearded, and carrying the weight of legend, he has lost most of his people beneath Pale and suspects someone in the Empire wants the Bridgeburners dead.",
-      "confidence": 0.94,
+      "summary": "Sergeant of the Ninth Squad of the Bridgeburners. Through Chapter Four he is trying to keep his battered squad alive, distrusts the mission to Darujhistan, defends a human explanation for Sorry against darker theories, and remains deeply tied to Dujek and the old army.",
+      "confidence": 0.96,
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17,
       "image": "assets/characters/whiskeyjack-chapter-two-canon.png",
-      "imageStyle": "WoW cinematic / Arcane-adjacent painterly field-guide portrait, spoiler-safe through Chapter Two",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
       "imageStatus": "canon"
+    },
+    {
+      "name": "Sorry — Bridgeburner recruit",
+      "type": "character",
+      "summary": "The later state of the fishergirl now serving with Whiskeyjack's squad. She has been with them for two years, still called a recruit, moves under a hooded raincloak with a small satchel, and feels wrong to the squad: young in appearance, but not young in the eyes.",
+      "confidence": 0.94,
+      "firstSeen": "CHAPTER THREE",
+      "firstSeenPosition": 18,
+      "image": "assets/characters/sorry-bridgeburner-chapter-four-canon.png",
+      "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
+      "imageStatus": "canon",
+      "aliases": [
+        "Sari",
+        "Sorry",
+        "Bridgeburner recruit"
+      ]
+    },
+    {
+      "name": "Toc the Younger",
+      "type": "character",
+      "summary": "A scarred, half-burned Claw/Messenger Corps outrider in the 2nd Army. He escorts Paran into Pale, warns him about the Bridgeburners and the unstable army politics, and offers himself as a contact if trouble comes.",
+      "confidence": 0.9,
+      "firstSeen": "CHAPTER THREE",
+      "firstSeenPosition": 18
+    },
+    {
+      "name": "Picker",
+      "type": "character",
+      "summary": "A blunt Bridgeburner corporal first seen lounging in the barracks. She sizes Paran up, predicts grim odds for him, and later finds his bleeding body in the alley and calls for a healer when he unexpectedly screams back to life.",
+      "confidence": 0.88,
+      "firstSeen": "CHAPTER THREE",
+      "firstSeenPosition": 18
+    },
+    {
+      "name": "Antsy",
+      "type": "character",
+      "summary": "A red-faced Bridgeburner sergeant with a huge handlebar moustache. He loses money to Hedge, knows where Whiskeyjack has gone, and helps respond after Paran is found wounded.",
+      "confidence": 0.82,
+      "firstSeen": "CHAPTER THREE",
+      "firstSeenPosition": 18
+    },
+    {
+      "name": "Shadowthrone",
+      "type": "character",
+      "summary": "King of High House Shadow as named in Paran's near-death encounter. He appears as a shadow-presence with Hounds at Hood's Gate and decides it may be better to follow Paran than finish him there.",
+      "confidence": 0.88,
+      "firstSeen": "CHAPTER FOUR",
+      "firstSeenPosition": 19
+    },
+    {
+      "name": "Oponn",
+      "type": "character",
+      "summary": "The Twins of Chance: a pale young man and a blonde young woman who meddle with Paran's death, bargain around Hood's Gate, and seem to oppose Shadow's certainty with uncertainty and chance.",
+      "confidence": 0.9,
+      "firstSeen": "CHAPTER THREE",
+      "firstSeenPosition": 18
+    },
+    {
+      "name": "Gear",
+      "type": "character",
+      "summary": "The Seventh Hound of Shadow. Gear tracks Hairlock through torn Warren paths into Pale, kills guards while hunting, attacks Tattersail's room, and is wounded by Paran before escaping back through Shadow.",
+      "confidence": 0.9,
+      "firstSeen": "CHAPTER FOUR",
+      "firstSeenPosition": 19
+    },
+    {
+      "name": "Hood's servant",
+      "type": "character",
+      "summary": "A shifting apparition at Hood's Gate who speaks for the Lord of Death when Oponn interrupts Paran's passage. It accepts a bargain that another premature death will fall in Paran's shadow.",
+      "confidence": 0.74,
+      "firstSeen": "CHAPTER FOUR",
+      "firstSeenPosition": 19
+    },
+    {
+      "name": "Dassem Ultor",
+      "type": "character",
+      "summary": "The former First Sword of the Empire, recalled in talk of the old wars and old wounds. Stories link him to Hood, the old Emperor's army, and a cascade of Ascendant interference, but he does not appear directly.",
+      "confidence": 0.7,
+      "firstSeen": "CHAPTER THREE",
+      "firstSeenPosition": 18
     }
   ],
   "factions": [
     {
       "name": "2nd Army",
       "type": "faction",
-      "summary": "The Malazan army force around Pale, including Tattersail's wizard cadre and Dujek's command. It suffers catastrophic losses during the assault on Moon's Spawn.",
+      "summary": "The Malazan army force around Pale under Dujek, including Tattersail and the Bridgeburners. Through Chapter Four it is under pressure from Tayschrenn, merger orders, and possible imperial house-cleaning.",
       "confidence": 0.86,
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17
@@ -437,7 +518,7 @@
     {
       "name": "Bridgeburners",
       "type": "faction",
-      "summary": "A military unit under High Fist Dujek Onearm. Sorry is recorded as attached to them by the end of the chapter.",
+      "summary": "The battered elite unit under Dujek, now reduced after Pale. Whiskeyjack’s Ninth Squad is sent toward Darujhistan while old loyalties, mutiny fears, Sorry, and Paran’s command all strain the group.",
       "confidence": 0.78,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16
@@ -445,7 +526,7 @@
     {
       "name": "Claw",
       "type": "faction",
-      "summary": "An imperial covert/assassin organization implied by Topper's role. Paran knows Topper's reputation and treats the Claw with enmity.",
+      "summary": "The imperial covert/assassin service. Topper commands at a high level; Kalam once belonged to it by strong implication; Toc the Younger is the last active Claw presence around the 2nd Army.",
       "confidence": 0.76,
       "firstSeen": "CHAPTER ONE",
       "firstSeenPosition": 16
@@ -505,43 +586,70 @@
       "confidence": 0.86,
       "firstSeen": "CHAPTER TWO",
       "firstSeenPosition": 17
+    },
+    {
+      "name": "House Shadow",
+      "summary": "A newly active High House/Warren whose Hounds, Assassin, and King are now directly entangled with Sorry, Paran, Hairlock, and the Bridgeburners. Its motives remain hostile to Laseen but not safely understood.",
+      "confidence": 0.88
+    },
+    {
+      "name": "High House Death",
+      "summary": "A Deck of Dragons power focused around Hood, Death’s Gate, the Virgin, and the Mason. Through Chapter Four it touches Sorry, Paran, Tattersail’s readings, and the threat of a large barrow.",
+      "confidence": 0.78
+    },
+    {
+      "name": "Moranth",
+      "summary": "Armoured allied clans using colour identities and Quorl air transport. Green Moranth courier Paran toward Pale; Black Moranth transport troops and carry the Bridgeburners toward Darujhistan.",
+      "confidence": 0.84
+    },
+    {
+      "name": "Darujhistan",
+      "summary": "The last Free City and the next imperial target. Through Chapter Four it is mostly a destination and object of strategy: the Bridgeburners are being sent there covertly.",
+      "confidence": 0.82
     }
   ],
   "mysteries": [
     {
-      "question": "What exactly did Cotillion and Ammanas do to the fishergirl/Sorry?",
+      "question": "Who is really moving against the Bridgeburners and Dujek?",
       "status": "open",
-      "currentTheory": "The chapter strongly suggests possession or transformation, but the mechanics and consequences are not yet clear.",
+      "currentTheory": "Tayschrenn is still the obvious suspect, but Chapters Three and Four keep open whether he acts for Laseen, himself, or within a larger imperial purge.",
+      "opened": "CHAPTER TWO",
+      "openedPosition": 17
+    },
+    {
+      "question": "What exactly is Sorry now?",
+      "status": "open",
+      "currentTheory": "The squad strongly suspects a House Shadow connection, and the Chapter Four evidence is hard to ignore, but Whiskeyjack still insists on treating her as human until proven otherwise.",
       "opened": "CHAPTER ONE",
       "openedPosition": 16
     },
     {
-      "question": "Who or what are Ammanas and Cotillion?",
+      "question": "What did Oponn do to Paran?",
       "status": "open",
-      "currentTheory": "They are powerful, shadow-associated figures with access to Hounds and Warrens, but their full identity is unresolved.",
-      "opened": "CHAPTER ONE",
-      "openedPosition": 16
+      "currentTheory": "Oponn kept Paran from passing fully through Hood’s Gate and returned him as a living piece in the game, but someone close to him may pay the death-price later.",
+      "opened": "CHAPTER THREE",
+      "openedPosition": 18
     },
     {
-      "question": "Why was the fishing village near Itko Kan slaughtered?",
+      "question": "Can Hairlock be controlled?",
       "status": "open",
-      "currentTheory": "It appears connected to imperial orders and/or a hidden supernatural conflict, but the exact purpose remains unclear.",
-      "opened": "CHAPTER ONE",
-      "openedPosition": 16
+      "currentTheory": "Quick Ben believes he still has a grip, but Hairlock claims otherwise, feeds on Chaos, threatens Tattersail, and may become as dangerous as the enemy he is tracking.",
+      "opened": "CHAPTER TWO",
+      "openedPosition": 17
     },
     {
-      "question": "Why does Lorn take Ganoes Paran onto her staff?",
+      "question": "What does the Mason of High House Death mean for Tattersail and the Bridgeburners?",
       "status": "open",
-      "currentTheory": "His noble background and observations at the massacre site seem relevant, but her deeper motive is not yet explicit.",
-      "opened": "CHAPTER ONE",
-      "openedPosition": 16
+      "currentTheory": "Tattersail reads a looming barrow and a great death pattern; by Chapter Four she fears the barrow may be large enough for all of them.",
+      "opened": "CHAPTER FOUR",
+      "openedPosition": 19
     },
     {
-      "question": "What is Rigga's prophecy warning about?",
+      "question": "Who or what is opposing Shadow?",
       "status": "open",
-      "currentTheory": "It points toward blood, shadow, a sword, and the fishergirl's future, but should remain unresolved for now.",
-      "opened": "CHAPTER ONE",
-      "openedPosition": 16
+      "currentTheory": "Oponn is visibly interfering, but the field also points toward High House Dark and a future clash with Shadow. The exact shape remains unknown.",
+      "opened": "CHAPTER THREE",
+      "openedPosition": 18
     }
   ],
   "relationships": [
@@ -958,6 +1066,267 @@
       "summary": "Tattersail’s memory links Dancer and Mock to a past night of violence, but details remain unresolved.",
       "confidence": 0.56,
       "firstSeen": "CHAPTER TWO"
+    },
+    {
+      "source": "Ganoes Paran",
+      "target": "Whiskeyjack",
+      "kind": "assigned to command squad",
+      "category": "command",
+      "summary": "Paran arrives in Pale as the new captain over Whiskeyjack’s Ninth Squad, a command nobody expects to be simple or safe.",
+      "confidence": 0.9,
+      "firstSeen": "CHAPTER THREE"
+    },
+    {
+      "source": "Ganoes Paran",
+      "target": "Sorry — Bridgeburner recruit",
+      "kind": "mission target / murder victim",
+      "category": "mystery",
+      "summary": "Paran is sent to stay close to Sorry, and the shadow-linked attack on him appears tied to that mission.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER THREE"
+    },
+    {
+      "source": "Ganoes Paran",
+      "target": "Toc the Younger",
+      "kind": "guided into Pale",
+      "category": "contact",
+      "summary": "Toc escorts Paran to Pale, warns him about army politics, and offers his name if trouble comes.",
+      "confidence": 0.88,
+      "firstSeen": "CHAPTER THREE"
+    },
+    {
+      "source": "Toc the Younger",
+      "target": "Claw",
+      "kind": "last active local agent",
+      "category": "faction",
+      "summary": "Toc says he is the last active Claw around the 2nd Army after others have been killed or exposed.",
+      "confidence": 0.82,
+      "firstSeen": "CHAPTER THREE"
+    },
+    {
+      "source": "Toc the Younger",
+      "target": "2nd Army",
+      "kind": "Messenger Corps outrider",
+      "category": "faction",
+      "summary": "Toc belongs to the Second as an outrider and has the lived-in perspective of the army around Pale.",
+      "confidence": 0.8,
+      "firstSeen": "CHAPTER THREE"
+    },
+    {
+      "source": "Tattersail",
+      "target": "Bellurdan",
+      "kind": "grief over Nightchill",
+      "category": "bond",
+      "summary": "Tattersail finds Bellurdan mourning Nightchill’s remains and clashes with him over whether Tayschrenn betrayed them.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER THREE"
+    },
+    {
+      "source": "Tattersail",
+      "target": "Whiskeyjack",
+      "kind": "uneasy alliance",
+      "category": "bond",
+      "summary": "Tattersail agrees to stay in the Bridgeburners’ conspiracy after Whiskeyjack shares the truth about Sorry and Hairlock’s dual task.",
+      "confidence": 0.88,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Tattersail",
+      "target": "Quick Ben",
+      "kind": "Warren collaboration / suspicion",
+      "category": "mystery",
+      "summary": "Quick Ben needs Tattersail as protection around Hairlock, while Tattersail realizes his power is deeper than it should be for someone unknown to her.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Tattersail",
+      "target": "Sorry — Bridgeburner recruit",
+      "kind": "Death Virgin / Shadow suspicion",
+      "category": "mystery",
+      "summary": "Tattersail’s Deck readings and the Bridgeburners’ evidence make Sorry’s link to Shadow feel increasingly certain.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Quick Ben",
+      "target": "Sorry — Bridgeburner recruit",
+      "kind": "suspects House Shadow link",
+      "category": "mystery",
+      "summary": "Quick Ben traces the Itko Kan massacre, Hounds, Lorn, and Sorry into one dark pattern.",
+      "confidence": 0.88,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Kalam",
+      "target": "Sorry — Bridgeburner recruit",
+      "kind": "killer recognizing killer",
+      "category": "mystery",
+      "summary": "Kalam is deeply wary of Sorry and reaches for a knife around her, but Whiskeyjack argues that may still mean human brutality rather than demonhood.",
+      "confidence": 0.82,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Whiskeyjack",
+      "target": "Sorry — Bridgeburner recruit",
+      "kind": "uneasy recruit under command",
+      "category": "mystery",
+      "summary": "Whiskeyjack keeps Sorry in the squad and defends a human explanation, even while remembering why the Bridgeburners cannot accept her as one of their own.",
+      "confidence": 0.88,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Hairlock",
+      "target": "Gear",
+      "kind": "hunted through Warrens",
+      "category": "mystery",
+      "summary": "Gear tracks Hairlock after Hairlock trespasses through Shadow and tears between Warrens using Chaos.",
+      "confidence": 0.9,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Hairlock",
+      "target": "Quick Ben",
+      "kind": "control fraying",
+      "category": "mystery",
+      "summary": "Quick Ben believes he is tracking and guiding Hairlock, but Hairlock claims he is already slipping that control.",
+      "confidence": 0.84,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Hairlock",
+      "target": "Tattersail",
+      "kind": "guardian and threat",
+      "category": "mystery",
+      "summary": "Hairlock relies on Tattersail’s room and protection, then threatens her after she prevents him from taking Gear.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Gear",
+      "target": "Tattersail",
+      "kind": "Hound attack",
+      "category": "conflict",
+      "summary": "Gear crashes into Tattersail’s room while hunting Hairlock and nearly overwhelms her wards.",
+      "confidence": 0.9,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Gear",
+      "target": "Ganoes Paran",
+      "kind": "wounded by sword",
+      "category": "conflict",
+      "summary": "Paran unexpectedly pierces Gear’s magic with his sword, forcing the Hound to retreat.",
+      "confidence": 0.88,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Shadowthrone",
+      "target": "Gear",
+      "kind": "commands Hound",
+      "category": "command",
+      "summary": "Gear is the Seventh Hound among Shadowthrone’s servants and hunts the trespasser through Pale.",
+      "confidence": 0.9,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Shadowthrone",
+      "target": "Ganoes Paran",
+      "kind": "chooses to follow rather than finish",
+      "category": "mystery",
+      "summary": "At Hood’s Gate, Shadowthrone decides Paran may be more useful alive as a trail to whoever opposes Shadow.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Oponn",
+      "target": "Ganoes Paran",
+      "kind": "intervenes at death",
+      "category": "mystery",
+      "summary": "Oponn meddles with Paran’s passage through Hood’s Gate and returns him to life as a piece of chance.",
+      "confidence": 0.92,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Oponn",
+      "target": "Hood's servant",
+      "kind": "bargain over a life",
+      "category": "mystery",
+      "summary": "Oponn bargains with Hood’s servant: Paran is spared, but another premature death will fall in his shadow.",
+      "confidence": 0.78,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Oponn",
+      "target": "Shadowthrone",
+      "kind": "opposed games",
+      "category": "mystery",
+      "summary": "Oponn’s meddling frustrates Shadow’s attempt to finish Paran and turns him into bait in a larger game.",
+      "confidence": 0.8,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Dujek Onearm",
+      "target": "Whiskeyjack",
+      "kind": "old loyalty / command strain",
+      "category": "command",
+      "summary": "Dujek and Whiskeyjack share old history and trust; Dujek gives him the Darujhistan orders and permission to walk if the squad survives.",
+      "confidence": 0.9,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Dujek Onearm",
+      "target": "Bridgeburners",
+      "kind": "permission to walk",
+      "category": "command",
+      "summary": "Dujek promises to take care of the remaining Bridgeburners and lets Whiskeyjack’s squad walk if they live through Darujhistan.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Fiddler",
+      "target": "Whiskeyjack",
+      "kind": "danger instinct trusted",
+      "category": "bond",
+      "summary": "Whiskeyjack listens when Fiddler’s instincts warn that something is about to be unleashed.",
+      "confidence": 0.84,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Picker",
+      "target": "Ganoes Paran",
+      "kind": "finds wounded captain",
+      "category": "contact",
+      "summary": "Picker discovers Paran’s body, notices the strange bleeding, and calls for a healer when he screams back to life.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Mallet",
+      "target": "Ganoes Paran",
+      "kind": "healer after intervention",
+      "category": "contact",
+      "summary": "Mallet heals what remains of Paran’s wounds and recognizes an outside force already repaired the fatal damage.",
+      "confidence": 0.86,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Hedge",
+      "target": "Ganoes Paran",
+      "kind": "adopts the stray",
+      "category": "bond",
+      "summary": "Hedge takes a liking to Paran after the attack, in the same stubborn way he adopts strays and needy creatures.",
+      "confidence": 0.72,
+      "firstSeen": "CHAPTER FOUR"
+    },
+    {
+      "source": "Anomander Rake",
+      "target": "House Shadow",
+      "kind": "future clash in Deck",
+      "category": "mystery",
+      "summary": "Tattersail’s spiral reading shows High House Dark’s Knight set against a Hound of Shadow, suggesting a future clash.",
+      "confidence": 0.72,
+      "firstSeen": "CHAPTER FOUR"
     }
   ],
   "visualReferences": [
