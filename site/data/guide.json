@@ -529,7 +529,24 @@
       "summary": "The Twins of Chance: a pale young man and a blonde young woman who meddle with Paran's death, bargain around Hood's Gate, and seem to oppose Shadow's certainty with uncertainty and chance.",
       "confidence": 0.9,
       "firstSeen": "CHAPTER THREE",
-      "firstSeenPosition": 18
+      "firstSeenPosition": 18,
+      "aliases": [
+        "Chance",
+        "Twin Jesters",
+        "Twins of Chance"
+      ],
+      "image": "assets/concepts/oponn-chance-twin-jesters-chapter-four.png",
+      "imageAlt": "Spoiler-safe symbolic character image for Oponn through Chapter Four: paired shadowed chance figures and a coin motif.",
+      "imageStyle": "symbolic character-as-power portrait, oil-and-gouache dark fantasy, spoiler-safe through Chapter Four",
+      "imageStatus": "canon-symbolic",
+      "snapshots": [
+        {
+          "label": "Chapter Three/Four",
+          "status": "current symbolic power",
+          "summary": "Known so far as the Twins of Chance: a paired power meddling around Paran, Hood, Shadow, and uncertainty.",
+          "image": "assets/concepts/oponn-chance-twin-jesters-chapter-four.png"
+        }
+      ]
     },
     {
       "name": "Gear",
