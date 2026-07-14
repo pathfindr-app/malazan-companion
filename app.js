@@ -10,7 +10,7 @@ const fallbackGuide = {
   visualReferences: []
 };
 
-const GUIDE_DATA_URL = "data/guide.json?v=20260714-world-web-full-tilt";
+const GUIDE_DATA_URL = "data/guide.json?v=20260714-desktop-world-web-v2";
 
 const state = {
   guide: fallbackGuide,
@@ -343,6 +343,7 @@ let graphRuntime = null;
 function stopGraphRuntime() {
   if (graphRuntime?.frame) cancelAnimationFrame(graphRuntime.frame);
   if (graphRuntime?.resizeObserver) graphRuntime.resizeObserver.disconnect();
+  if (graphRuntime?.intersectionObserver) graphRuntime.intersectionObserver.disconnect();
   graphRuntime = null;
 }
 
@@ -360,28 +361,71 @@ function relationColor(category = "contact", alpha = 1) {
   return colors[category] || `rgba(118, 168, 189, ${alpha})`;
 }
 
+
+function graphClusterFor(name, categories = []) {
+  const text = normalize(`${name} ${categories.join(" ")}`);
+  if (/bridgeburner|whiskeyjack|quick ben|kalam|fiddler|hedge|mallet|trotts|picker|antsy|dujek|onearm|2nd army|calot|tattersail|hairlock|tayschrenn|nightchill|bellurdan|akaronys/.test(text)) return "host";
+  if (/paran|lorn|laseen|claw|topper|toc|malazan empire|aragan|garnet/.test(text)) return "empire";
+  if (/sorry|sari|rigga|fishergirl|ammanas|cotillion|shadow|gear|oponn|hood|death|house shadow/.test(text)) return "mystery";
+  if (/rake|andii|moon|brood|crimson|moranth|darujhistan/.test(text)) return "outsiders";
+  return "unknown";
+}
+
+const GRAPH_CLUSTERS = {
+  host: { label: "Pale / Host", x: 0.66, y: 0.68, color: "rgba(215,168,93,.16)" },
+  empire: { label: "Empire / Command", x: 0.68, y: 0.25, color: "rgba(152,184,141,.15)" },
+  mystery: { label: "Shadow · Chance · Death", x: 0.34, y: 0.44, color: "rgba(170,146,230,.16)" },
+  outsiders: { label: "Moon's Spawn / Others", x: 0.25, y: 0.78, color: "rgba(118,168,189,.14)" },
+  unknown: { label: "Unplaced", x: 0.5, y: 0.5, color: "rgba(240,217,157,.10)" }
+};
+
 function startGraphRuntime(map, graphNodes, graphLinks, positions) {
   stopGraphRuntime();
   const canvas = map.querySelector(".map-fx-canvas");
   const stage = map.querySelector(".map-canvas");
   if (!canvas || !stage || !graphNodes.length) return;
+
   const ctx = canvas.getContext("2d", { alpha: true });
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const desktop = window.matchMedia("(min-width: 980px)").matches;
+  const lowPower = reduceMotion || !desktop || graphNodes.length > 36;
+  const fpsInterval = lowPower ? 1000 / 18 : 1000 / 30;
   const nodeButtons = new Map($$(".map-node", map).map((button) => [button.dataset.nodeName, button]));
   const nodeMap = new Map();
   let pointer = { x: 0.5, y: 0.5, active: false, dragging: null };
+  let lastFrame = 0;
+  let visible = true;
 
   graphNodes.forEach((node, index) => {
     const [px, py] = positions.get(node.id) || graphNodePosition(node, index, graphNodes.length);
-    nodeMap.set(node.id, { ...node, x: px / 100, y: py / 100, vx: 0, vy: 0, ax: px / 100, ay: py / 100, mass: 1 + Math.min(3, node.links / 5), pulse: Math.random() * Math.PI * 2 });
+    const cluster = graphClusterFor(node.id, node.categories || []);
+    nodeMap.set(node.id, {
+      ...node,
+      cluster,
+      x: px / 100,
+      y: py / 100,
+      vx: 0,
+      vy: 0,
+      ax: px / 100,
+      ay: py / 100,
+      mass: 1 + Math.min(3, node.links / 5),
+      pulse: Math.random() * Math.PI * 2
+    });
   });
 
   const links = graphLinks.map((relationship) => ({ ...relationship, sourceNode: nodeMap.get(relationship.source), targetNode: nodeMap.get(relationship.target) })).filter((relationship) => relationship.sourceNode && relationship.targetNode);
-  const particles = Array.from({ length: Math.min(130, Math.max(38, links.length * 3)) }, (_, index) => ({ link: links[index % Math.max(1, links.length)], t: Math.random(), speed: 0.0018 + Math.random() * 0.0042, size: 0.7 + Math.random() * 1.8, phase: Math.random() * Math.PI * 2 })).filter((particle) => particle.link);
+  const particleTarget = lowPower ? Math.min(24, links.length) : Math.min(72, Math.max(22, links.length * 2));
+  const particles = Array.from({ length: particleTarget }, (_, index) => ({
+    link: links[index % Math.max(1, links.length)],
+    t: Math.random(),
+    speed: 0.0012 + Math.random() * 0.0026,
+    size: 0.7 + Math.random() * 1.4,
+    phase: Math.random() * Math.PI * 2
+  })).filter((particle) => particle.link);
 
   function resize() {
     const rect = stage.getBoundingClientRect();
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = desktop ? Math.min(window.devicePixelRatio || 1, 1.35) : 1;
     canvas.width = Math.max(1, Math.floor(rect.width * dpr));
     canvas.height = Math.max(1, Math.floor(rect.height * dpr));
     canvas.style.width = `${rect.width}px`;
@@ -397,21 +441,23 @@ function startGraphRuntime(map, graphNodes, graphLinks, positions) {
       button.style.setProperty("--y", (node.y * 100).toFixed(3));
       const dx = node.x - pointer.x;
       const dy = node.y - pointer.y;
-      const glow = pointer.active ? Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / 0.22) : 0;
+      const glow = pointer.active ? Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / 0.25) : 0;
       button.style.setProperty("--hover-glow", glow.toFixed(3));
     });
   }
 
   function stepPhysics() {
+    if (lowPower && !pointer.dragging) return;
     const list = Array.from(nodeMap.values());
     list.forEach((node) => {
-      let fx = (node.ax - node.x) * 0.0045;
-      let fy = (node.ay - node.y) * 0.0045;
+      const cluster = GRAPH_CLUSTERS[node.cluster] || GRAPH_CLUSTERS.unknown;
+      let fx = ((node.ax * 0.6 + cluster.x * 0.4) - node.x) * 0.0035;
+      let fy = ((node.ay * 0.6 + cluster.y * 0.4) - node.y) * 0.0035;
       if (pointer.active && !pointer.dragging) {
         const dx = node.x - pointer.x;
         const dy = node.y - pointer.y;
-        const distSq = Math.max(0.0009, dx * dx + dy * dy);
-        const force = Math.min(0.0016, 0.000013 / distSq);
+        const distSq = Math.max(0.0012, dx * dx + dy * dy);
+        const force = Math.min(0.001, 0.000010 / distSq);
         fx += dx * force;
         fy += dy * force;
       }
@@ -424,8 +470,8 @@ function startGraphRuntime(map, graphNodes, graphLinks, positions) {
         const a = list[i], b = list[j];
         const dx = a.x - b.x;
         const dy = a.y - b.y;
-        const distSq = Math.max(0.0018, dx * dx + dy * dy);
-        const force = Math.min(0.0015, 0.000036 / distSq);
+        const distSq = Math.max(0.0022, dx * dx + dy * dy);
+        const force = Math.min(0.001, (a.cluster === b.cluster ? 0.000018 : 0.000036) / distSq);
         a.fx += dx * force;
         a.fy += dy * force;
         b.fx -= dx * force;
@@ -438,8 +484,8 @@ function startGraphRuntime(map, graphNodes, graphLinks, positions) {
       const dx = b.x - a.x;
       const dy = b.y - a.y;
       const dist = Math.max(0.001, Math.sqrt(dx * dx + dy * dy));
-      const desired = 0.16 + (link.category === "mystery" ? 0.035 : 0);
-      const force = (dist - desired) * 0.003;
+      const desired = a.cluster === b.cluster ? 0.14 : 0.22;
+      const force = (dist - desired) * 0.0022;
       const fx = (dx / dist) * force;
       const fy = (dy / dist) * force;
       a.fx += fx; a.fy += fy;
@@ -448,67 +494,91 @@ function startGraphRuntime(map, graphNodes, graphLinks, positions) {
 
     list.forEach((node) => {
       if (pointer.dragging === node.id) {
-        node.x += (pointer.x - node.x) * 0.32;
-        node.y += (pointer.y - node.y) * 0.32;
+        node.x += (pointer.x - node.x) * 0.34;
+        node.y += (pointer.y - node.y) * 0.34;
         node.vx = 0; node.vy = 0;
         return;
       }
-      node.vx = (node.vx + node.fx / node.mass) * 0.88;
-      node.vy = (node.vy + node.fy / node.mass) * 0.88;
+      node.vx = (node.vx + node.fx / node.mass) * 0.84;
+      node.vy = (node.vy + node.fy / node.mass) * 0.84;
       node.x = Math.min(0.94, Math.max(0.06, node.x + node.vx));
       node.y = Math.min(0.94, Math.max(0.06, node.y + node.vy));
-      node.pulse += 0.025;
+      node.pulse += lowPower ? 0.010 : 0.020;
     });
   }
 
-  function draw() {
+  function drawRunes(w, h, time) {
+    Object.values(GRAPH_CLUSTERS).forEach((cluster, index) => {
+      ctx.save();
+      const x = cluster.x * w;
+      const y = cluster.y * h;
+      const radius = Math.min(w, h) * (0.18 + index * 0.006);
+      ctx.translate(x, y);
+      ctx.rotate(Math.sin(time * 0.08 + index) * 0.06);
+      ctx.strokeStyle = cluster.color;
+      ctx.lineWidth = 1;
+      ctx.setLineDash([2, 18]);
+      ctx.beginPath();
+      ctx.arc(0, 0, radius, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.restore();
+    });
+  }
+
+  function draw(timestamp = performance.now()) {
+    graphRuntime.frame = requestAnimationFrame(draw);
+    if (!visible || timestamp - lastFrame < fpsInterval) return;
+    lastFrame = timestamp;
+
     const rect = stage.getBoundingClientRect();
     const w = rect.width;
     const h = rect.height;
     ctx.clearRect(0, 0, w, h);
     ctx.save();
     ctx.globalCompositeOperation = "lighter";
-    const time = performance.now() * 0.001;
+    const time = timestamp * 0.001;
+    drawRunes(w, h, time);
 
     links.forEach((link) => {
       const a = link.sourceNode, b = link.targetNode;
       const ax = a.x * w, ay = a.y * h, bx = b.x * w, by = b.y * h;
-      const mx = (ax + bx) / 2 + Math.sin(time + a.pulse) * 9;
-      const my = (ay + by) / 2 + Math.cos(time + b.pulse) * 9;
+      const mx = (ax + bx) / 2 + Math.sin(time + a.pulse) * (lowPower ? 3 : 7);
+      const my = (ay + by) / 2 + Math.cos(time + b.pulse) * (lowPower ? 3 : 7);
       ctx.beginPath();
       ctx.moveTo(ax, ay);
       ctx.quadraticCurveTo(mx, my, bx, by);
-      ctx.strokeStyle = relationColor(link.category, link.category === "mystery" ? 0.38 : 0.26);
-      ctx.lineWidth = link.category === "mystery" ? 1.35 : 0.95;
+      ctx.strokeStyle = relationColor(link.category, link.category === "mystery" ? 0.35 : 0.22);
+      ctx.lineWidth = link.category === "mystery" ? 1.25 : 0.82;
       if (link.category === "mystery" || link.category === "uncertain") ctx.setLineDash([5, 8]); else ctx.setLineDash([]);
-      ctx.shadowBlur = 14;
-      ctx.shadowColor = relationColor(link.category, 0.45);
+      ctx.shadowBlur = lowPower ? 0 : 9;
+      ctx.shadowColor = relationColor(link.category, 0.42);
       ctx.stroke();
     });
     ctx.setLineDash([]);
 
-    particles.forEach((particle) => {
-      if (!prefersReducedMotion) particle.t = (particle.t + particle.speed) % 1;
+    if (!reduceMotion) particles.forEach((particle) => {
+      particle.t = (particle.t + particle.speed) % 1;
       const link = particle.link;
       const a = link.sourceNode, b = link.targetNode;
       const t = particle.t;
       const ax = a.x * w, ay = a.y * h, bx = b.x * w, by = b.y * h;
-      const x = ax + (bx - ax) * t + Math.sin(t * Math.PI * 2 + particle.phase + time) * 7;
-      const y = ay + (by - ay) * t + Math.cos(t * Math.PI * 2 + particle.phase + time) * 7;
+      const x = ax + (bx - ax) * t + Math.sin(t * Math.PI * 2 + particle.phase + time) * 5;
+      const y = ay + (by - ay) * t + Math.cos(t * Math.PI * 2 + particle.phase + time) * 5;
       const fade = Math.sin(Math.PI * t);
       ctx.beginPath();
-      ctx.arc(x, y, particle.size * (0.55 + fade), 0, Math.PI * 2);
-      ctx.fillStyle = relationColor(link.category, 0.26 + fade * 0.5);
-      ctx.shadowBlur = 18;
-      ctx.shadowColor = relationColor(link.category, 0.58);
+      ctx.arc(x, y, particle.size * (0.5 + fade), 0, Math.PI * 2);
+      ctx.fillStyle = relationColor(link.category, 0.2 + fade * 0.38);
+      ctx.shadowBlur = lowPower ? 0 : 12;
+      ctx.shadowColor = relationColor(link.category, 0.5);
       ctx.fill();
     });
 
     nodeMap.forEach((node) => {
       const x = node.x * w, y = node.y * h;
-      const radius = 18 + Math.min(18, node.links * 1.1) + Math.sin(node.pulse) * 2;
+      const radius = 20 + Math.min(16, node.links * 0.9) + Math.sin(node.pulse) * 1.5;
       const gradient = ctx.createRadialGradient(x, y, 1, x, y, radius);
-      gradient.addColorStop(0, node.type === "faction" ? "rgba(152,184,141,.18)" : "rgba(240,217,157,.18)");
+      gradient.addColorStop(0, node.type === "faction" ? "rgba(152,184,141,.16)" : node.type === "concept" ? "rgba(170,146,230,.15)" : "rgba(240,217,157,.15)");
       gradient.addColorStop(1, "rgba(240,217,157,0)");
       ctx.fillStyle = gradient;
       ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
@@ -516,8 +586,7 @@ function startGraphRuntime(map, graphNodes, graphLinks, positions) {
 
     ctx.restore();
     updateNodeDom();
-    if (!prefersReducedMotion) stepPhysics();
-    graphRuntime.frame = requestAnimationFrame(draw);
+    stepPhysics();
   }
 
   function pointerToGraph(event) {
@@ -527,6 +596,8 @@ function startGraphRuntime(map, graphNodes, graphLinks, positions) {
 
   const resizeObserver = new ResizeObserver(resize);
   resizeObserver.observe(stage);
+  const intersectionObserver = new IntersectionObserver(([entry]) => { visible = entry?.isIntersecting ?? true; }, { threshold: 0.05 });
+  intersectionObserver.observe(stage);
   stage.addEventListener("pointermove", (event) => { pointer = { ...pointer, ...pointerToGraph(event), active: true }; });
   stage.addEventListener("pointerleave", () => { pointer.active = false; pointer.dragging = null; });
   stage.addEventListener("pointerup", () => { pointer.dragging = null; });
@@ -537,7 +608,7 @@ function startGraphRuntime(map, graphNodes, graphLinks, positions) {
     });
   });
 
-  graphRuntime = { frame: null, resizeObserver };
+  graphRuntime = { frame: null, resizeObserver, intersectionObserver };
   resize();
   draw();
 }
@@ -572,7 +643,13 @@ function renderRelationshipMap(guide) {
     return `<button class="map-node map-node-${node.type} is-visible ${isMatched ? "is-matched" : ""}" data-node-name="${escapeHtml(node.id)}" style="--x:${x};--y:${y};--node-scale:${size.toFixed(2)};--hover-glow:0" aria-label="Show links for ${escapeHtml(node.label)}"><span>${escapeHtml(node.label)}</span><em>${node.links}</em></button>`;
   }).join("");
 
-  map.innerHTML = `<div class="map-canvas"><canvas class="map-fx-canvas" aria-hidden="true"></canvas><div class="map-veil" aria-hidden="true"></div><div class="map-orb" aria-hidden="true"></div>${nodeButtons}</div>`;
+  const activeClusters = Array.from(new Set(graphNodes.map((node) => graphClusterFor(node.id, node.categories || []))))
+    .map((clusterId) => GRAPH_CLUSTERS[clusterId])
+    .filter(Boolean)
+    .map((cluster) => `<span class="cluster-label" style="--x:${(cluster.x * 100).toFixed(2)};--y:${(cluster.y * 100).toFixed(2)}">${escapeHtml(cluster.label)}</span>`)
+    .join("");
+  const graphLegend = `<div class="graph-legend" aria-hidden="true"><span class="legend-command">Command</span><span class="legend-mystery">Mystery</span><span class="legend-faction">Faction</span><span class="legend-bond">Bond</span></div>`;
+  map.innerHTML = `<div class="map-canvas"><canvas class="map-fx-canvas" aria-hidden="true"></canvas><div class="map-veil" aria-hidden="true"></div><div class="map-orb" aria-hidden="true"></div>${activeClusters}${graphLegend}${nodeButtons}</div>`;
   detail.innerHTML = relationshipDetailTemplate(graphLinks[0] || visibleRelationships[0] || relationships[0]);
 
   const focusNode = (button) => {
