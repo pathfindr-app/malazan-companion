@@ -42,6 +42,9 @@ function chapterLabel(boundary = {}) {
 
   const position = Number(boundary.through_position ?? boundary.position);
   if (position === 16) return "Chapter One";
+  if (position === 17) return "Chapter Two";
+  if (position === 18) return "Chapter Three";
+  if (position === 19) return "Chapter Four";
   if (Number.isFinite(position)) return `reading position ${position}`;
   return "current chapter";
 }
@@ -52,7 +55,7 @@ function technicalBoundary(boundary = {}) {
   return "Chapter label shown instead of raw source indexing";
 }
 
-const GUIDE_DATA_URL = "data/guide.json?v=20260708-quorl-reference";
+const GUIDE_DATA_URL = "data/guide.json?v=20260714-chapter-four-web-v2";
 
 async function loadGuide() {
   try {
@@ -69,6 +72,7 @@ function characterHaystack(character) {
   return normalize([
     character.name,
     character.summary,
+    Array.isArray(character.aliases) ? character.aliases.join(" ") : character.aliases,
     character.firstSeen,
     character.firstSeenPosition,
     character.type
@@ -116,7 +120,7 @@ function focusCardTemplate(character) {
   const firstSeen = characterFirstSeen(character);
   const initial = escapeHtml((character.name || "?").slice(0, 1));
   const image = character.image
-    ? `<figure class="character-portrait"><img src="${escapeHtml(character.image)}" alt="Spoiler-safe portrait of ${escapeHtml(character.name)}" loading="lazy" /></figure>`
+    ? `<figure class="character-portrait"><img src="${escapeHtml(character.image)}" alt="Spoiler-safe portrait of ${escapeHtml(character.name)}" loading="eager" decoding="async" /></figure>`
     : `<div class="sigel" aria-hidden="true">${initial}</div>`;
 
   return `
@@ -245,8 +249,9 @@ function graphNodePosition(node, index, total) {
     "House Paran": [16, 16],
     "Tavore Paran": [30, 14],
     "Garnet": [18, 25],
-    "Ganoes Paran": [40, 21],
-    "Topper": [54, 16],
+    "Ganoes Paran": [42, 22],
+    "Topper": [54, 14],
+    "Toc the Younger": [51, 27],
     "Claw": [66, 18],
     "Lorn": [64, 35],
     "Laseen": [82, 18],
@@ -254,11 +259,16 @@ function graphNodePosition(node, index, total) {
     "Unnamed Itko Kan captain": [78, 43],
     "Aragan": [70, 53],
 
-    "Sorry": [52, 50],
+    "Sorry": [52, 47],
+    "Sorry — Bridgeburner recruit": [60, 55],
     "Rigga": [43, 38],
     "Fishergirl's father": [56, 38],
-    "Ammanas": [43, 62],
-    "Cotillion": [55, 63],
+    "Ammanas": [40, 62],
+    "Cotillion": [52, 65],
+    "Shadowthrone": [64, 67],
+    "Gear": [70, 57],
+    "Oponn": [42, 33],
+    "Hood's servant": [34, 34],
 
     "Bridgeburners": [80, 62],
     "Whiskeyjack": [26, 51],
@@ -268,6 +278,8 @@ function graphNodePosition(node, index, total) {
     "Hedge": [25, 32],
     "Mallet": [33, 28],
     "Trotts": [42, 26],
+    "Picker": [54, 35],
+    "Antsy": [59, 40],
     "Dujek Onearm": [74, 74],
     "Onearm's Host": [84, 79],
 
@@ -286,7 +298,12 @@ function graphNodePosition(node, index, total) {
     "Caladan Brood": [27, 90],
     "Crimson Guard": [39, 92],
     "Dancer": [56, 93],
-    "Mock": [68, 92]
+    "Mock": [68, 92],
+    "Dassem Ultor": [78, 88],
+    "House Shadow": [73, 63],
+    "High House Death": [32, 43],
+    "Moranth": [91, 58],
+    "Darujhistan": [92, 45]
   };
   if (featured[node.id]) return featured[node.id];
   const angle = (-90 + (360 / Math.max(total, 1)) * index) * (Math.PI / 180);
@@ -410,7 +427,7 @@ function visualReferenceTemplate(item) {
   const category = item.category || item.type || "Known-so-far reference";
   const firstSeen = item.firstSeen || "Current boundary";
   const image = item.image
-    ? `<figure class="reference-art"><img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt || `Spoiler-safe reference for ${name}`)}" loading="lazy" /></figure>`
+    ? `<figure class="reference-art"><img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt || `Spoiler-safe reference for ${name}`)}" loading="eager" decoding="async" /></figure>`
     : "";
 
   return `
