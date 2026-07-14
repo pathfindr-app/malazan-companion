@@ -195,7 +195,27 @@
       "firstSeenPosition": 17,
       "image": "assets/characters/hairlock-chapter-four-canon.png",
       "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
-      "imageStatus": "canon"
+      "imageStatus": "canon",
+      "aliases": [
+        "puppet mage",
+        "wooden mage construct"
+      ],
+      "snapshots": [
+        {
+          "label": "Chapter Two",
+          "title": "Soul-shifted mage",
+          "summary": "A badly wounded 2nd Army mage whose survival depends on Quick Ben’s dangerous soul-shifting rite. The known-so-far card preserves the horror of the transformation without treating him like a toy.",
+          "image": "assets/characters/hairlock-chapter-four-canon.png",
+          "status": "current"
+        },
+        {
+          "label": "Chapter Four",
+          "title": "Fraying puppet-bound mage",
+          "summary": "A former 2nd Army mage now bound into a small wooden puppet body. He is using chaotic paths between Warrens to hunt whoever set up the Bridgeburners, but his mind is fraying and he is becoming dangerous even to Tattersail and Quick Ben.",
+          "image": "assets/characters/hairlock-chapter-four-canon.png",
+          "status": "current"
+        }
+      ]
     },
     {
       "name": "Hedge",
@@ -338,7 +358,28 @@
       "firstSeenPosition": 16,
       "image": "assets/characters/sorry-chapter-two-canon.png",
       "imageStyle": "Painterly oil-and-gouache / restrained WoW cinematic field-guide portrait, spoiler-safe through Chapter Four",
-      "imageStatus": "canon"
+      "imageStatus": "canon",
+      "aliases": [
+        "Sari",
+        "Itko Kan fishergirl",
+        "young Sorry"
+      ],
+      "snapshots": [
+        {
+          "label": "Chapter One",
+          "title": "Itko Kan fishergirl",
+          "summary": "Original Chapter One state: a young fishergirl from Itko Kan caught beside the road during imperial violence. After Rigga's death, shadow-associated powers take an interest in her; this entry preserves the first identity before the later Bridgeburner recruit state.",
+          "image": "assets/characters/sorry-chapter-two-canon.png",
+          "status": "preserved"
+        },
+        {
+          "label": "Chapter Three/Four",
+          "title": "Bridgeburner recruit",
+          "summary": "The same girl as the story now presents her after two years with Whiskeyjack's squad: hooded raincloak, small satchel, young face but older/empty eyes, and a wrongness that the squad can feel.",
+          "image": "assets/characters/sorry-bridgeburner-chapter-four-canon.png",
+          "status": "current"
+        }
+      ]
     },
     {
       "name": "Tattersail",
@@ -430,7 +471,24 @@
       "aliases": [
         "Sari",
         "Sorry",
-        "Bridgeburner recruit"
+        "Bridgeburner recruit",
+        "current Sorry"
+      ],
+      "snapshots": [
+        {
+          "label": "Chapter One origin",
+          "title": "Itko Kan fishergirl",
+          "summary": "Preserved origin-state portrait: the fishergirl caught in the Chapter One violence before the later Bridgeburner recruit presentation.",
+          "image": "assets/characters/sorry-chapter-two-canon.png",
+          "status": "preserved"
+        },
+        {
+          "label": "Chapter Three/Four",
+          "title": "Bridgeburner recruit",
+          "summary": "The later state of the fishergirl now serving with Whiskeyjack's squad. She has been with them for two years, still called a recruit, moves under a hooded raincloak with a small satchel, and feels wrong to the squad: young in appearance, but not young in the eyes.",
+          "image": "assets/characters/sorry-bridgeburner-chapter-four-canon.png",
+          "status": "current"
+        }
       ]
     },
     {
@@ -1340,19 +1398,21 @@
       "image": "assets/concepts/warren-door-threshold-chapter-three.png",
       "imageAlt": "Spoiler-safe concept art of a Warren as a dark doorway-like threshold in the air",
       "imageStyle": "Painterly oil-and-gouache dark fantasy threshold view, spoiler-safe through Chapter Three",
-      "imageStatus": "canon-reference"
+      "imageStatus": "canon-reference",
+      "atlasCategory": "magic"
     },
     {
       "name": "Quorl",
       "type": "creature",
-      "category": "Creature / travel",
+      "category": "Bestiary / travel",
       "summary": "A spoiler-safe visual reference for the flying creatures used for overland travel. Known-so-far visual anchors: four wings, thin translucent membranes, and a dangerous sense of altitude.",
       "firstSeen": "CHAPTER THREE",
       "firstSeenPosition": 18,
       "image": "assets/concepts/quorl-chapter-three.png",
       "imageAlt": "Spoiler-safe concept art of a four-winged quorl flying high above rugged terrain",
       "imageStyle": "Painterly oil-and-gouache dark fantasy field-guide creature plate, spoiler-safe through Chapter Three",
-      "imageStatus": "canon-reference"
+      "imageStatus": "canon-reference",
+      "atlasCategory": "creature"
     }
   ]
 }
