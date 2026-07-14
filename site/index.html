@@ -6,85 +6,109 @@
   <title>Gardens Field Guide · Spoiler-Safe Reading Companion</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260714-chapter-four-web" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260714-atlas-overhaul" />
 </head>
 <body>
   <div class="ambient ambient-one" aria-hidden="true"></div>
   <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="page-texture" aria-hidden="true"></div>
 
-  <header class="masthead">
-    <nav class="topbar" aria-label="Guide status">
+  <header class="masthead" id="top">
+    <nav class="topbar" aria-label="Guide sections">
       <a class="brand" href="#top" aria-label="Gardens field guide home">
         <span class="brand-mark">✦</span>
         <span>
           <strong>Gardens Field Guide</strong>
-          <small>Spoiler-safe companion</small>
+          <small>Spoiler-safe Malazan atlas</small>
         </span>
       </a>
-      <div class="status-pill" id="safe-status">No future-book facts shown</div>
+      <div class="nav-links" aria-label="Page sections">
+        <a href="#world-web">World Web</a>
+        <a href="#characters">Characters</a>
+        <a href="#atlas">The Atlas</a>
+        <a href="#mysteries">Mysteries</a>
+      </div>
+      <div class="status-pill" id="safe-status">Spoiler gate loading…</div>
     </nav>
 
-    <section class="hero" id="top">
+    <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Private EPUB in · public-safe guide out</p>
-        <h1>A character deck for reading without ruining the book.</h1>
-        <p class="lede">Search, swipe, and review only what has been revealed up to your current chapter. The raw book stays private; this page contains short derived notes only.</p>
+        <p class="eyebrow">No wiki spoilers · no future-book contamination</p>
+        <h1>A living field guide for dense fantasy.</h1>
+        <p class="lede">A chapter-gated character deck, relationship web, and World Atlas that evolves as the story reveals itself. Built for memory, mystery, and social-ready snapshots without ruining the read.</p>
+        <div class="hero-actions">
+          <a class="primary-action" href="#world-web">Open the World Web</a>
+          <a class="secondary-action" href="#characters">Browse characters</a>
+        </div>
       </div>
 
       <aside class="boundary-card" aria-labelledby="boundary-title">
-        <span class="card-kicker">Current reading boundary</span>
+        <span class="card-kicker">Current spoiler gate</span>
         <h2 id="boundary-title">Through Chapter One</h2>
-        <p id="boundary-explainer">Showing entries known by the end of Chapter One.</p>
+        <p id="boundary-explainer">Loading current boundary…</p>
         <div class="boundary-meter" aria-hidden="true"><span></span></div>
-        <small id="boundary-technical">EPUB source position 16 · translated into a chapter label</small>
+        <dl class="stat-grid">
+          <div><dt>People</dt><dd id="stat-characters">—</dd></div>
+          <div><dt>Links</dt><dd id="stat-links">—</dd></div>
+          <div><dt>Atlas</dt><dd id="stat-atlas">—</dd></div>
+        </dl>
+        <small id="boundary-technical">EPUB source position translated into chapter label.</small>
       </aside>
     </section>
   </header>
 
-  <section class="map-shell" aria-labelledby="map-title">
-    <div class="map-panel">
-      <div class="section-heading map-heading">
+  <main>
+    <section class="world-shell" id="world-web" aria-labelledby="world-title">
+      <div class="section-heading world-heading">
         <div>
-          <p class="eyebrow">Character web</p>
-          <h2 id="map-title">A spoiler-safe map of people, houses, and power.</h2>
+          <p class="eyebrow">TouchDesigner-style knowledge graph</p>
+          <h2 id="world-title">The World Web</h2>
         </div>
         <p id="map-count" class="count-label">Loading…</p>
       </div>
-      <p class="map-lede">Every line is known only through the current boundary. Solid links are clearer; misted links preserve uncertainty where the book is still being cagey.</p>
-      <div class="map-stage" id="relationship-map" aria-label="Character relationship map"></div>
-      <div id="map-detail" class="map-detail" aria-live="polite"></div>
-    </div>
-  </section>
+      <p class="section-lede">Search a name, hover a node, or filter by relationship type. The default Story Hubs view keeps the graph readable; All reveals the full current tangle when you want it.</p>
 
-  <section class="reference-shell" aria-labelledby="reference-title">
-    <div class="reference-panel">
-      <div class="section-heading reference-heading">
-        <div>
-          <p class="eyebrow">Objects & places</p>
-          <h2 id="reference-title">Visual references</h2>
+      <div class="graph-console">
+        <div class="graph-search" role="search">
+          <label class="sr-only" for="graph-search">Search the relationship web</label>
+          <span aria-hidden="true">⌕</span>
+          <input id="graph-search" type="search" autocomplete="off" placeholder="Search the web: Sorry, Oponn, Bridgeburners…" />
+          <button id="clear-graph" type="button">Clear</button>
         </div>
-        <p id="reference-count" class="count-label">Loading…</p>
+        <div class="graph-filters" aria-label="Relationship filters">
+          <button type="button" data-graph-filter="spotlight" aria-pressed="true">Story Hubs</button>
+          <button type="button" data-graph-filter="all">All</button>
+          <button type="button" data-graph-filter="command">Command</button>
+          <button type="button" data-graph-filter="faction">Faction</button>
+          <button type="button" data-graph-filter="mystery">Mystery</button>
+          <button type="button" data-graph-filter="bond">Bonds</button>
+          <button type="button" data-graph-filter="lineage">Lineage</button>
+        </div>
       </div>
-      <p class="reference-lede">Spoiler-gated concept art for places, creatures, objects, and magic terms as they become visible in the text.</p>
-      <div id="visual-references" class="reference-grid"></div>
-    </div>
-  </section>
 
-  <main class="layout-shell">
-    <section class="deck-panel" aria-labelledby="deck-title">
+      <div class="world-grid">
+        <div class="map-panel">
+          <div class="map-stage" id="relationship-map" aria-label="Interactive spoiler-safe relationship map"></div>
+        </div>
+        <aside id="map-detail" class="map-detail" aria-live="polite"></aside>
+      </div>
+    </section>
+
+    <section class="character-shell" id="characters" aria-labelledby="deck-title">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Character deck</p>
-          <h2 id="deck-title">Focus on one person at a time</h2>
+          <p class="eyebrow">Chapter-state character cards</p>
+          <h2 id="deck-title">Characters</h2>
         </div>
         <p id="deck-count" class="count-label">Loading…</p>
       </div>
+      <p class="section-lede">Characters can keep earlier portraits while gaining new chapter snapshots. Search “Sari” and the current Sorry state surfaces without deleting the Chapter One version.</p>
 
       <div class="search-wrap" role="search">
         <label class="sr-only" for="guide-search">Search characters, factions, or mysteries</label>
         <span aria-hidden="true">⌕</span>
-        <input id="guide-search" type="search" autocomplete="off" placeholder="Search: Sorry, Bridgeburners, Lorn…" />
+        <input id="guide-search" type="search" autocomplete="off" placeholder="Search: Sorry, Sari, Hairlock, Bridgeburners…" />
         <button id="clear-search" type="button">Clear</button>
       </div>
 
@@ -99,10 +123,29 @@
       </div>
     </section>
 
-    <aside class="side-rail" aria-label="Reading notes">
-      <section class="lore-panel">
+    <section class="atlas-shell" id="atlas" aria-labelledby="atlas-title">
+      <div class="section-heading reference-heading">
+        <div>
+          <p class="eyebrow">Places · objects · creatures · magic</p>
+          <h2 id="atlas-title">The Atlas</h2>
+        </div>
+        <p id="reference-count" class="count-label">Loading…</p>
+      </div>
+      <p class="section-lede">The old visual references are now a real Atlas: locations, bestiary entries, magic concepts, artifacts, and travel references as they become visible in the text.</p>
+      <div class="atlas-tabs" aria-label="Atlas categories">
+        <button type="button" data-atlas-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-atlas-filter="place">Places</button>
+        <button type="button" data-atlas-filter="creature">Bestiary</button>
+        <button type="button" data-atlas-filter="magic">Magic</button>
+        <button type="button" data-atlas-filter="object">Objects</button>
+      </div>
+      <div id="visual-references" class="reference-grid"></div>
+    </section>
+
+    <section class="lower-grid" id="mysteries" aria-label="Factions and mysteries">
+      <section class="lore-panel factions-panel">
         <div class="panel-title-row">
-          <p class="eyebrow">Factions</p>
+          <p class="eyebrow">Factions & powers</p>
           <span id="faction-count">—</span>
         </div>
         <div id="factions" class="rune-list"></div>
@@ -118,11 +161,11 @@
 
       <section class="lore-panel safety-panel">
         <p class="eyebrow">Spoiler discipline</p>
-        <p>The dashboard is a veil, not a wiki: it reveals only current-boundary notes and preserves uncertainty when the book is still being cagey.</p>
+        <p>This is a veil, not a wiki. It is built from local chapter-bound notes, short derived facts, and uncertainty-preserving labels through the current reading boundary.</p>
       </section>
-    </aside>
+    </section>
   </main>
 
-  <script src="app.js?v=20260714-chapter-four-web-v2"></script>
+  <script src="app.js?v=20260714-atlas-overhaul"></script>
 </body>
 </html>
